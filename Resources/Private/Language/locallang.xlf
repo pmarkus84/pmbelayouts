@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2016-01-20T10:57:53Z" product-name="pmbelayouts">
+        <header/>
+        <body>
+            <trans-unit id="pmbelayouts.create">
+                <source>Create</source>
+            </trans-unit>
+            <trans-unit id="pmbelayouts.edit">
+                <source>Edit</source>
+            </trans-unit>
+            <trans-unit id="pmbelayouts.back">
+                <source>Back</source>
+            </trans-unit>
+            <trans-unit id="pmbelayouts.save">
+                <source>Save</source>
+            </trans-unit>
+            <trans-unit id="pmbelayouts.delete">
+                <source>Delete</source>
+            </trans-unit>
+            <trans-unit id="pmbelayouts.choose">
+                <source>Choose</source>
+            </trans-unit>
+            <trans-unit id="pmbelayouts.renting">
+                <source>Renting</source>
+            </trans-unit>
+            <trans-unit id="pmbelayouts.search">
+                <source>Search</source>
+            </trans-unit>
+            <trans-unit id="pmbelayouts.remove">
+                <source>Remove</source>
+            </trans-unit>
+            <trans-unit id="pmbelayouts.allremove">
+                <source>Remove all</source>
+            </trans-unit>
+            <trans-unit id="pmbelayouts.topage">
+                <source>To the page</source>
+            </trans-unit>    
+            <trans-unit id="paginate_previous">
+                <source>Previous</source>
+            </trans-unit>       
+            <trans-unit id="paginate_next">
+                <source>Next</source>
+            </trans-unit> 
+            <trans-unit id="paginate_overall" xml:space="preserve">
+                <source>Page %s of %s.</source>                
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

@@ -1,0 +1,71 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:ce="http://typo3.org/ns/TYPO3/CMS/FluidStyledContent/ViewHelpers" data-namespace-typo3-fluid="true">
+    <figure class="image">
+        <f:if condition="{data.layout} == 1"> 
+            <f:if condition="{file.link}">
+                <f:then>
+                    <f:link.typolink parameter="{file.link}" title="{file.title}">
+                        <h5 style="hyphens:auto;padding:5px 10px">{file.title}</h5>
+                    </f:link.typolink>
+                </f:then>
+                <f:else>
+                    <h5 style="hyphens:auto;padding:5px 10px">{file.title}</h5>
+                </f:else>
+            </f:if> 
+        </f:if>
+        <f:if condition="{file.link}">
+            <f:then>
+                <f:link.typolink parameter="{file.link}" title="{file.title}">
+                    <f:render partial="Media/Rendering/Image" arguments="{file: file, dimensions: dimensions, settings: settings}" />
+                </f:link.typolink>
+            </f:then>
+            <f:else>
+                <f:if condition="{data.image_zoom}">
+                    <f:then>                             
+                        <ce:link.clickEnlarge image="{file}" configuration="{settings.media.popup}">
+                            <f:render partial="Media/Rendering/Image" arguments="{file: file, dimensions: dimensions, settings: settings}" />
+                        </ce:link.clickEnlarge>
+                    </f:then>
+                    <f:else>
+                        <f:render partial="Media/Rendering/Image" arguments="{file: file, dimensions: dimensions, settings: settings}" />
+                    </f:else>
+                </f:if>
+            </f:else>
+        </f:if>
+        <f:if condition="{file.description} || {file.title}">
+            <f:then>
+            <figcaption class="image-caption" {f:if(condition: '{data.layout} == 1', then: 'style="width:100%"')}>
+                <f:if condition="{data.layout} == 1">
+                    <f:then>
+                        <div class="style1picturedescr" style="padding:5px 10px"><p style="float:left">{file.description}</p></div>
+                    </f:then>
+                    <f:else>
+                        <f:if condition="{data.layout} == 2">
+                            <f:then>
+                                <h5 style="text-transform: uppercase">{file.title}</h5>
+                                <div class="style2picturedescr">
+                                {file.description}
+                                <f:if condition="{file.link}">
+                                    <f:link.typolink parameter="{file.link}" title="{file.title}" class="style2picturedescrbutton">                                       
+                                        <p class="btn-read-more-link">                                            
+                                            <f:translate key="LLL:EXT:pmbelayouts/Resources/Private/Language/locallang.xlf:pmbelayouts.topage" />                                              
+                                        </p>
+                                    </f:link.typolink>
+                                </f:if>
+                                </div>
+                            </f:then>
+                            <f:else>
+                                {file.description}
+                            </f:else>
+                        </f:if>                        
+                    </f:else>
+                </f:if>
+            </figcaption>
+            </f:then>
+            <f:else>
+                <f:if condition="{data.layout} == 1">
+                    </div>
+                </f:if>
+            </f:else>
+        </f:if>
+    </figure>
+</html>

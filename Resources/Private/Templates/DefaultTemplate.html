@@ -1,0 +1,75 @@
+<f:layout name="DefaultLayout" />
+
+<!-- Navigation -->
+<f:section name="navigation">
+    <f:render partial="Navigation_top_fixed" arguments="{_all}" />
+</f:section>
+
+<!-- Teaser -->
+<f:section name="teaser">    
+    <f:render partial="Teaser" arguments="{_all}"/>
+</f:section>
+
+<!-- Content and Sidebar --> 
+<f:section name="content">              
+    <!--TYPO3SEARCH_begin-->   
+    <f:if condition="{sidebar}">           
+        <f:then>
+            <div class="row">
+                <div class="col-lg-8"><f:format.raw>{inhalt}</f:format.raw></div>
+                <div class="col-lg-4"><f:format.raw>{sidebar}</f:format.raw></div>
+            </div>
+        </f:then>
+        <f:else>
+            <div class="row">                
+                <div class="col-lg-12"><f:format.raw>{inhalt}</f:format.raw></div>                          
+            </div>
+        </f:else>           
+    </f:if>  
+</f:section>
+
+<!-- Footer-Bereich -->
+<f:section name="footer">    
+    <div id="footer">
+        <div id="footoben">            
+            <f:comment><!-- TODO: Social Media Links --></f:comment>
+            <f:cObject typoscriptObjectPath="lib.footerInhalt" />   
+            <ul id="menu-social" class="menu">                
+                <li id="menu-item-45" class="footericons"><a title="Facebook" target="_blank" href="https://www.facebook.com/PARATKOFFER"><span><f:image src="fileadmin/user_upload/Mitarbeiter/abteilungen/marketing/icons/footer/facebook.svg" alt="Facebook"/></span></a></li>
+                <li id="menu-item-47" class="footericons"><a title="YouTube" target="_blank" href="https://www.youtube.com/channel/UCtOQTcZj6ZPt_mBK-MRZOBA"><span><f:image src="fileadmin/user_upload/Mitarbeiter/abteilungen/marketing/icons/footer/youtube.svg" alt="YouTube"/></span></a></li>
+                <li id="menu-item-46" class="footericons"><a title="Xing" target="_blank" href="https://www.xing.com/companies/paratbeteiligungsgmbh%2Fparatgmbh+co.kg"><span><f:image src="fileadmin/user_upload/Mitarbeiter/abteilungen/marketing/icons/footer/xing.svg" alt="Xing"/></span></a></li>
+                <li id="menu-item-48" class="footericons"><a title="Instagram" target="_blank" href="https://www.instagram.com/parat_official/"><span><f:image src="fileadmin/user_upload/Mitarbeiter/abteilungen/marketing/icons/footer/instagram.svg" alt="Instagram"/></span></a></li>
+                <li id="menu-item-49" class="footericons"><a title="LinkedIn" target="_blank" href="https://www.linkedin.com/company/parat-gruppe/"><span><f:image src="fileadmin/user_upload/Mitarbeiter/abteilungen/marketing/icons/footer/linkedin.svg" alt="LinkedIn"/></span></a></li>
+            </ul>            
+        </div>
+        <div id="footunten">
+            <div class="container">                
+                <div id="footermenue">
+                    <f:comment><!-- Impressum --></f:comment>
+                    <f:cObject typoscriptObjectPath="lib.footer_menue" />
+                </div>
+                <f:comment>
+                    <div class="col-lg-4">
+                        <!-- Loginform -->                                              
+                        <f:cObject typoscriptObjectPath="lib.loginform" />             
+                    </div>     
+                </f:comment>
+            </div>
+        </div>
+        <!-- Suche 
+        <form class="footer right" role="search">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">                                            
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>-->
+    </div>  
+    <div style="display:none">
+        <f:cObject typoscriptObjectPath="lib.loginform" />
+    </div>
+</f:section>
+
+<!-- GotTop -->
+<f:section name="gotop">
+    <f:render partial="Gotop" arguments="{_all}" />
+</f:section>

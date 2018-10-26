@@ -1,0 +1,4 @@
+# im Seitenbaum werden die pagIDs gezeigt
+options.pageTree.showPageIdWithTitle = 1
+# erstellt im BE deb Button, der den System-Cache löscht
+options.clearCache.system = 1

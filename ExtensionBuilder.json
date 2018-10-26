@@ -1,0 +1,39 @@
+{
+    "modules": [],
+    "properties": {
+        "backendModules": [],
+        "description": "Various Backend Layouts",
+        "emConf": {
+            "category": "distribution",
+            "custom_category": "",
+            "dependsOn": "typo3 => 8.7.0-8.7.99\n",
+            "disableLocalization": false,
+            "disableVersioning": false,
+            "skipGenerateDocumentationTemplate": false,
+            "sourceLanguage": "en",
+            "state": "alpha",
+            "targetVersion": "8.7.0-8.7.99",
+            "version": "1.0.0"
+        },
+        "extensionKey": "pmbelayouts",
+        "name": "BE-Layouts",
+        "originalExtensionKey": "",
+        "originalVendorName": "",
+        "persons": [
+            {
+                "company": "PM-Webdesign",
+                "email": "m.puffer@pm-webdesign.eu",
+                "name": "Markus Puffer",
+                "role": "Developer"
+            }
+        ],
+        "plugins": [],
+        "vendorName": "Pmwebdesign"
+    },
+    "wires": [],
+    "log": {
+        "last_modified": "2018-01-08 12:56",
+        "extension_builder_version": "8.7.0",
+        "be_user": " (1)"
+    }
+}

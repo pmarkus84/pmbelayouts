@@ -1,0 +1,275 @@
+#Seitenrecht automatisch vergeben für Seiten anlegen, ...
+TCEMAIN {
+    # Hier die ID der Gruppe Seitenrechte eintragen
+    permissions.groupid = 1
+
+    # Rechte Besitzer:
+    permissions.user = show, editcontent, edit, new, delete
+
+    # Rechte Besitzergruppe:
+    permissions.group = show, editcontent, edit, new
+
+    # Rechte "everybody" (kann ungesetzt bleiben):
+    permissions.everybody =
+}
+
+## Ueberschriften
+TCEFORM.tt_content.header_layout{
+    # Add Headline
+    addItems.7 = h1 Parat-Rot
+    addItems.8 = h2 Parat-Rot
+    altLabels {        
+        1 = h1 - Seitenüberschrift
+        2 = h2 - Themenüberschrift
+        3 = h3 - Überschrift
+        4 = h4 - Überschrift
+        5 = h5 - Überschrift
+    }
+    #removeItems = 9,10
+}
+
+TCEFORM.tt_content {    
+    # Layouts
+    layout.altLabels.0 = Standard
+    layout.altLabels.1 = Bilder Gallery (4-Spaltig)
+    layout.altLabels.2 = Bilder Icons  
+    layout.altLabels.3 = Drittes Layout   
+    layout.addItems.4 = Listdesign PARAT
+    layout.addItems.5 = Kurzlinks (Mitte, horizontal)
+    layout.addItems.6 = Kurzlinks (Links, vertikal)
+    layout.addItems.8 = Flex Container
+    
+    # Frames
+    frame_class.addItems {
+        width100 = Länge 100%
+        threecolumn = Dreispaltiger Inhalt
+    }
+}
+
+# PageTSConfig
+## FE-Cache für Seiten mit News löschen -> muss im news Ordner hinterlegt werden
+# TCEMAIN.clearCacheCmd = 1,5,6
+
+## Default Image cropping ##
+TCEFORM.sys_file_reference.crop.config.cropVariants {
+    default {
+        title = Lare Desktop
+        #selectedRatio = 16:9
+        selectedRatio = NaN
+        allowedAspectRatios {            
+            NaN {
+                title = Free
+                value = 0.0
+            }
+            16:9 {
+                title = 16:9
+                value = 1.7777777
+            }            
+            4:3 {
+                title = 4:3
+                value = 1.3333333
+            }
+            3:2 {
+                title = 3:2
+                value = 1.5
+            }
+            1:1 {
+                title = 1:1
+                value = 1
+            }
+        }
+    }
+    desktop {
+        title = Desktop
+        selectedRatio = NaN
+        allowedAspectRatios {
+            NaN {
+                title = Free
+                value = 0.0
+            }
+            16:9 {
+                title = 16:9
+                value = 1.7777777
+            }
+            4:3 {
+                title = 4:3
+                value = 1.3333333
+            }
+            3:2 {
+                title = 3:2
+                value = 1.5
+            }
+            1:1 {
+                title = 1:1
+                value = 1
+            }
+        }
+    }
+    tablet {
+        title = Tablet
+        selectedRatio = NaN
+        allowedAspectRatios {
+            NaN {
+                title = Free
+                value = 0.0
+            }
+            16:9 {
+                title = 16:9
+                value = 1.7777777
+            }
+            4:3 {
+                title = 4:3
+                value = 1.3333333
+            }
+            3:2 {
+                title = 3:2
+                value = 1.5
+            }
+            1:1 {
+                title = 1:1
+                value = 1
+            }
+        }
+    }
+    mobile {
+        title = Mobile
+        selectedRatio = NaN
+        allowedAspectRatios {
+            NaN {
+                title = Free
+                value = 0.0
+            }
+            16:9 {
+                title = 16:9
+                value = 1.7777777
+            }
+            4:3 {
+                title = 4:3
+                value = 1.3333333
+            }
+            3:2 {
+                title = 3:2
+                value = 1.5
+            }
+            1:1 {
+                title = 1:1
+                value = 1
+            }
+        }
+    }
+}
+## Default Image cropping  - END ##
+
+## Default Language setting
+mod.SHARED {
+      defaultLanguageFlag = de
+      defaultLanguageLabel = Deutsch
+}
+
+## Extension News 
+#Templates
+tx_news.templateLayouts {
+        1 = Listslider
+        2 = normal
+}
+# Automatically Archivdate -> TSconfig on news folder
+#tx_news.predefine.archive = last year
+#tx_news.predefine.archive = +30 days
+
+## Backend-Layouts definieren
+mod.web_layout.BackendLayouts {
+    # Zwei-Spalten Layout
+    1 {
+        title = Default Layout (2 Spalten)
+        config {
+            backend_layout {
+                colCount = 3
+                rowCount = 1
+                rows {
+                    1 {
+                        columns {
+                            1 {
+                                name = inhalt
+                                colspan = 2
+                                colPos = 0
+                            }
+                            2 {
+                                name = sidebar
+                                colPos = 1
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    2 {
+        title = 2 Spalten mit Teaser und Headliner
+        #icon = EXT:example_extension/Resources/Public/Images/BackendLayouts/default.gif
+        config {
+            backend_layout {
+                colCount = 2
+                rowCount = 3
+                rows {
+                    1 {
+                        columns {
+                            1 {
+                                name = Teaser
+                                colPos = 3
+                            }
+                            2 {
+                                name = Teaser-Headliner
+                                colPos = 4
+                            }
+                        }
+                    }
+                    2 {
+                        columns {
+                            1 {
+                                name = inhalt
+                                colPos = 0
+                            }
+                            2 {
+                                name = sidebar
+                                colPos = 2
+                            }
+                        }
+                    }
+                    3 {
+                        columns {
+                            1 {
+                                name = Footer
+                                colspan = 2
+                                colPos = 1
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    # TV - Layout
+    3 {
+        title = TV Layout (2 Spalten)
+        config {
+            backend_layout {
+                colCount = 2
+                rowCount = 1
+                rows {
+                    1 {
+                        columns {
+                            1 {
+                                name = text                                
+                                colPos = 0
+                            }                            
+                            2 {
+                                name = sidebar
+                                colPos = 2
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

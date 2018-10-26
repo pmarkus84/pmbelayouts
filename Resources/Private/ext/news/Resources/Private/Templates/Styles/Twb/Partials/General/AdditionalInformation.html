@@ -1,0 +1,43 @@
+{namespace vh=Pmwebdesign\Pmbelayouts\ViewHelpers}
+<f:comment><!-- News Kategorien --></f:comment>
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+<div class="extra">
+	<!-- author -->
+	<f:if condition="{newsItem.author}">            
+            <span class="glyphicon glyphicon-user"></span>
+            <f:comment><f:translate key="author" arguments="{0:newsItem.author}"/></f:comment>
+            {newsItem.author} |            
+	</f:if>
+
+	<!-- date -->
+	<span class="glyphicon glyphicon-calendar"> </span>
+	<time itemprop="datePublished" datetime="{f:format.date(date:newsItem.datetime, format:'Y-m-d')}">
+		<f:format.date format="{f:translate(key:'dateFormat')}">{newsItem.datetime}</f:format.date>
+	</time>
+
+	<!-- category -->        
+	<f:if condition="{newsItem.firstCategory}">            
+            | <span class="glyphicon glyphicon-tags"> </span>&nbsp;
+            <f:for each="{newsItem.categories}" as="category">
+		<f:if condition="{category.shortcut}">
+			<f:then>
+				<f:link.page pageUid="{category.shortcut}">
+					<span class="label label-info">{category.title}</span>
+				</f:link.page>
+			</f:then>
+			<f:else>
+				<span class="label label-info">{category.title}</span>
+			</f:else>
+		</f:if>		
+            </f:for>            
+	</f:if>
+
+	<f:if condition="{newsItem.tags}">
+		| <span class="glyphicon glyphicon-tags"> </span> <span class="news-list-tags" itemprop="keywords">
+		<f:for each="{newsItem.tags}" as="tag">
+			<span class="label label-info">{tag.title}</span>
+		</f:for>
+	</span>
+	</f:if>
+</div>
+</html>

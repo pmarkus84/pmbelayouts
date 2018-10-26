@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2016-01-20T10:57:53Z" product-name="pmbelayouts">
+        <header/>
+        <body>
+            <trans-unit id="pmbelayouts.create">
+                <source>Create</source>
+                <target state="translated">Erstellen</target>
+            </trans-unit>
+            <trans-unit id="pmbelayouts.edit">
+                <source>Edit</source>
+                <target state="translated">Bearbeiten</target>
+            </trans-unit>
+            <trans-unit id="pmbelayouts.back">
+                <source>Back</source>
+                <target state="translated">Zurück</target>
+            </trans-unit>
+            <trans-unit id="pmbelayouts.save">
+                <source>Save</source>
+                <target state="translated">Sichern</target>
+            </trans-unit>
+            <trans-unit id="pmbelayouts.delete">
+                <source>Delete</source>
+                <target state="translated">Löschen</target>
+            </trans-unit>
+            <trans-unit id="pmbelayouts.choose">
+                <source>Choose</source>
+                <target state="translated">Auswahl</target>
+            </trans-unit>
+            <trans-unit id="pmbelayouts.renting">
+                <source>Renting</source>
+                <target state="translated">Ausgabe</target>
+            </trans-unit>
+            <trans-unit id="pmbelayouts.search">
+                <source>Search</source>
+                <target state="translated">Suche</target>
+            </trans-unit>
+            <trans-unit id="pmbelayouts.remove">
+                <source>Remove</source>
+                <target state="translated">Entfernen</target>
+            </trans-unit>
+            <trans-unit id="pmbelayouts.allremove">
+                <source>Remove all</source>
+                <target state="translated">Alle entfernen</target>
+            </trans-unit>  
+            <trans-unit id="pmbelayouts.topage">
+                <source>To the page</source>
+                <target state="translated">Zur Seite</target>
+            </trans-unit>            
+            <trans-unit id="paginate_previous">
+                <source>Previous</source>
+                <target state="translated">Vorherige</target>
+            </trans-unit>       
+            <trans-unit id="paginate_next">
+                <source>Next</source>
+                <target state="translated">Nächste</target>
+            </trans-unit>   
+            <trans-unit id="paginate_overall" xml:space="preserve">
+                <source>Page %s of %s.</source>
+                <target state="translated">Seite %s von %s</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

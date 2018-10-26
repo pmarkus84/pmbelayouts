@@ -1,0 +1,132 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:comment><f:media class="image-embed-item" file="{file}" width="{dimensions.width}" height="{dimensions.height}" alt="{file.alternative}" title="{file.title}" /></f:comment>
+
+<f:if condition="{file.originalFile.properties.extension} == 'svg' || {file.originalFile.properties.extension} == 'pdf'">
+    <f:then>        
+        <f:media class="image-embed-item" file="{file}" width="{f:if(condition: '{dimensions.width} != 100', then: '{dimensions.width}', else: '100%')}" height="auto" alt="{file.alternative}" title="{file.title}" />
+    </f:then>
+    <f:else>        
+        <picture>            
+            <source srcset="{f:uri.image(image: file, maxWidth: settings.maxImgWidth, cropVariant: 'default')}" media="(min-width: 1200px)">
+            <source srcset="{f:uri.image(image: file, maxWidth: '992', cropVariant: 'desktop')}, {f:uri.image(image: file, maxWidth: '1984', cropVariant: 'desktop')} 2x" media="(min-width: 992px)">
+            <source srcset="{f:uri.image(image: file, maxWidth: '767', cropVariant: 'tablet')}, {f:uri.image(image: file, maxWidth: '1536', cropVariant: 'tablet')} 2x" media="(min-width: 620px)">
+            <source srcset="{f:uri.image(image: file, maxWidth: '620', cropVariant: 'mobile')}, {f:uri.image(image: file, maxWidth: '1536', cropVariant: 'mobile')} 2x" media="(min-width: 0px)">
+           
+            <!---Fallback--->
+            <f:comment><img class="img-responsive" width="{dimensions.width}" height="{dimensions.height}" src="{f:uri.image(image: file, maxWidth: settings.maxImgWidth, cropVariant: 'default')}" alt="{file.alternative}" longdesc="{file.description}" title="{file.title}"></f:comment>
+            <img class="img-responsive" width="{f:if(condition: '{dimensions.width} != 100', then: '{dimensions.width}', else: '100%')}" height="100%" src="{f:uri.image(image: file, maxWidth: settings.maxImgWidth, cropVariant: 'default')}" alt="{file.alternative}" longdesc="{file.description}" title="{file.title}">
+           
+        </picture>
+    </f:else>
+</f:if>
+</html>
+<f:comment>
+    <!-- Responsive Image Rendering with image crop
+        PAGE_TS:
+        TCEFORM.sys_file_reference.crop.config.cropVariants {
+            default {
+                title = Large Desktop
+                selectedRatio = NaN
+                allowedAspectRatios {
+                    NaN {
+                        title = Free
+                        value = 0.0
+                    }
+                    16:9 {
+                        title = 16:9
+                        value = 1.7777777
+                    }
+                    4:3 {
+                        title = 4:3
+                        value = 1.3333333
+                    }
+                    3:2 {
+                        title = 3:2
+                        value = 1.5
+                    }
+                    1:1 {
+                        title = 1:1
+                        value = 1
+                    }
+                }
+            }
+            desktop {
+                title = Desktop
+                selectedRatio = NaN
+                allowedAspectRatios {
+                    NaN {
+                        title = Free
+                        value = 0.0
+                    }
+                    16:9 {
+                        title = 16:9
+                        value = 1.7777777
+                    }
+                    4:3 {
+                        title = 4:3
+                        value = 1.3333333
+                    }
+                    3:2 {
+                        title = 3:2
+                        value = 1.5
+                    }
+                    1:1 {
+                        title = 1:1
+                        value = 1
+                    }
+                }
+            }
+            tablet {
+                title = Tablet
+                selectedRatio = NaN
+                allowedAspectRatios {
+                    NaN {
+                        title = Free
+                        value = 0.0
+                    }
+                    16:9 {
+                        title = 16:9
+                        value = 1.7777777
+                    }
+                    4:3 {
+                        title = 4:3
+                        value = 1.3333333
+                    }
+                    3:2 {
+                        title = 3:2
+                        value = 1.5
+                    }
+                    1:1 {
+                        title = 1:1
+                        value = 1
+                    }
+                }
+            }
+            mobile {
+                title = Mobile
+                selectedRatio = NaN
+                allowedAspectRatios {
+                    NaN {
+                        title = Free
+                        value = 0.0
+                    }
+                    16:9 {
+                        title = 16:9
+                        value = 1.7777777
+                    }
+                    4:3 {
+                        title = 4:3
+                        value = 1.3333333
+                    }
+                    3:2 {
+                        title = 3:2
+                        value = 1.5
+                    }
+                    1:1 {
+                        title = 1:1
+                        value = 1
+                    }
+                }
+            }
+        }
+--></f:comment>

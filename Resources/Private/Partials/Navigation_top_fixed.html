@@ -1,0 +1,26 @@
+<!-- Top Navigation Fixed -->    
+<div id="top" class="header">
+    <div class="headerline"></div>     
+    <f:if condition="{bgimagewrap}!=''"> 
+        <f:then>
+            <nav id="mainnav" class="navbar navbar-expand-lg navbar-light fixed-top mainnav white">
+        </f:then>
+        <f:else>
+            <nav id="mainnav" class="navbar navbar-expand-lg navbar-light fixed-top mainnav black">
+        </f:else>
+    </f:if>  
+        <div class="container">  
+            <a class="navbar-brand navbarbrandmain mb-2" title="Home" href="{baseUrltext}"><f:if condition="{bgimagewrap}!=''"><f:then><f:cObject typoscriptObjectPath="obj.logo" /></f:then><f:else><f:cObject typoscriptObjectPath="obj.logobl" /></f:else></f:if></a>        
+            <button id="navbutton" type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar" aria-label="Toggle Navigation">                
+                <span class="navbar-toggler-icon"></span>               
+            </button>        
+            <div id="navbar" class="collapse navbar-collapse navbarcollapsemain">                
+                <f:cObject typoscriptObjectPath="lib.navbar" />                
+                <f:cObject typoscriptObjectPath="lib.loginsmall" />
+                <f:cObject typoscriptObjectPath="lib.languagebt" />
+            </div><!--/.nav-collapse -->            
+        </div>
+        <div id="navline"></div>
+    </nav>    
+</div>
+        

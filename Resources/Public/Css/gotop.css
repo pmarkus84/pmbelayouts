@@ -1,0 +1,68 @@
+/*
+Copyright (c) 2017 Markus Puffer <m.puffer@pm-webdesign.eu>.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+
+Contributors:
+   Markus Puffer <m.puffer@pm-webdesign.eu> - initial API and implementation and/or initial documentation
+*/
+/* 
+    Created on : 28.08.2017, 13:38:57
+    Author     : Markus Puffer <m.puffer@pm-webdesign.eu>
+*/
+/** Link to pagestart */
+#gotop,
+#gotop a {
+    position: fixed;
+    right: 25px;
+    bottom: 20px;
+}
+#gotop a {
+    font: 1.1em/2 Arial;
+    text-align: center;
+    color: #fff;
+    /*background: radial-gradient(circle,#282828,#555);*/
+    background: rgb(160,160,160);
+    /*border-radius: 10px;*/
+    border-radius: 5px;
+    /*box-shadow: 0 0 4px 2px #666;*/
+    width: 2.3em;
+    height: 2em;    
+    margin-left: -5px;
+    opacity: 0.8;
+    transition: 1s;
+    z-index: 10;
+}
+#gotop a:hover {
+    background: rgb(228,1,58);
+    text-decoration: none;
+}
+#gotop span {
+    position: absolute;
+    color: #ffffff;
+    /*height: 0;
+    width: 0; */
+    width: auto;
+    /*top: -4000em;*/
+    overflow: hidden;
+    right: 10px;
+    top: 10px;
+}
+.gotoparrow {
+    display: inline-block;
+    width: 0;
+    height: 10px;
+    margin-right: .1em;
+    vertical-align: .255em;
+    content: " ";
+    border-top: 0;
+    border-right: .5em solid transparent;
+    border-bottom: .4em solid;
+    border-left: .5em solid transparent;
+}
+#gotop {
+    opacity: 0;
+    transition: 1s;
+}

@@ -1,0 +1,118 @@
+/*@font-face {
+	font-family: 'Myriad-regular';	
+	src: url('../fonts/MyriadPro-Regular.otf') format('opentype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Myriad-bold';	
+	src: url('../fonts/MyriadPro-Bold.otf') format('opentype');
+	font-weight: bold;
+	font-style: normal;
+}*/
+
+#komplett {
+	position: absolute;
+	display: block;	
+	max-width: 1980px;
+	max-height: 1080px;
+	width: 100%;
+	height: 100%;			
+	background-image: url(/fileadmin/user_upload/Mitarbeiter/abteilungen/zentrale/TVanzeige/Paratgrau.gif);
+	background-repeat: no-repeat;
+/*        background-size: 30%;*/
+/*        background-position-y: 0px;*/
+}
+
+#komplett img
+{
+/*	position: absolute;*/
+/*	width: auto;*/
+	/*min-width: 100px;*/
+	max-width: 100%;
+	height: auto;
+	/*min-height: 400px;*/
+}
+
+#header
+{
+	
+}
+
+/* Linker, mittlerer und rechter Bereich */
+#contentall
+{	
+	position: relative;
+	display: block;
+	float: left;
+	/*color: #000;	*/
+	/*background-color: #1d1818;*/
+	width: 100%;
+	height: 100%;
+	max-width: 1980px;
+	max-height: 1080px;
+}
+
+/** Begrüßung */
+#left 
+{	
+	position: relative;
+	display: block; 		
+	
+	max-width: 35%;
+	height: auto;
+	float: left;	
+	margin-left: 20px;	
+	margin-right: 10px;
+	margin-top: 10px;
+}
+
+#left img
+{
+/*	max-width: 250px;*/
+	height: auto;	        
+/*	margin-left: -10px;*/
+}
+
+#content_elements
+{
+	display: block;
+	position: relative;
+	/*clear: both;*/
+	margin-top: 15px;
+	float: right;
+	width: 60%;
+	height: auto;
+	min-width: 60%;	
+	max-width: 60%;		
+}
+
+#contentleft
+{
+	float: left;	
+}
+
+#rightcont 
+{
+	position: relative;	
+	float: right;
+	width: 100%;
+	max-width: 100%;
+	margin-right: 20px;
+	margin-top: 20%;
+}
+
+.video-js-box
+{	
+	/*width: 90%;*/
+	max-width: 100%;
+	height: auto;	
+	max-height: 100%;
+}
+
+#rightcont video
+{
+	max-width: 100%;
+	height: auto;
+}

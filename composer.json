@@ -1,0 +1,19 @@
+{
+    "name": "pmwebdesign/pmbelayouts",
+    "type": "typo3-cms-extension",
+    "description": "Various Backend Layouts",
+    "authors": [
+        {
+            "name": "Markus Puffer",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "typo3/cms-core": "^8.7.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Pmwebdesign\\Pmbelayouts\\": "Classes"
+        }
+    }
+}

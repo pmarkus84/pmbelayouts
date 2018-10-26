@@ -1,0 +1,313 @@
+/*
+Copyright (c) 2017 Markus Puffer <m.puffer@pm-webdesign.eu>.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+
+Contributors:
+   Markus Puffer <m.puffer@pm-webdesign.eu> - initial API and implementation and/or initial documentation
+*/
+/* 
+    Created on : 14.09.2017, 12:47:09
+    Author     : Markus Puffer <m.puffer@pm-webdesign.eu>
+*/
+/** Navigation */
+/* Header Line */
+.headerline {
+    border-top: 4px solid #c9243a;
+    width: 100%;
+    z-index: 9999999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+/* Brand Logo */
+.navbarbrandmain {   
+/*    padding-left: 20px;  */
+    margin-left: 15px;
+    /*height: 45px; /* for IE 11 */
+}
+.navbar {
+    padding: .5rem 0;
+}
+#navlogo {
+    height: 35px;
+    width: auto;    
+    transition: all 0.3s linear;     
+}
+/* Nav Button */
+.navbar-toggler {
+    margin-right: 15px;
+}
+.icon-bar {
+    border: 1px solid #cccccc;    
+}
+/* Navigation art */
+.mainnav {         
+    /*text-transform: uppercase; */
+    width: 100%;        
+    /*min-height: 55px;*/
+    /*max-height: 55px;*/
+    z-index: 99;
+}
+.mainnav.white {
+    background-color: transparent;
+}
+.mainnav.black {
+    background-color: rgba(255,255,255,1);
+}
+#navline {    
+    display: none;
+    /*margin-top: -20px;*/
+    margin-top: 0px;
+    border-bottom: 0.1px solid rgba(193,193,193,0.3);   
+}
+/* Navi Link */
+.navbarnavmain > li > a {
+    padding-bottom: 5px;
+}
+.mainnav .navbarnavmain > li > a.nav-link {
+    padding-left: 15px;
+}
+/* Navi Active Point */
+.mainnav .navbarnavmain > li > a.nav-link.active { 
+    /*background-color: transparent;   */
+    border-left-style: solid;
+    border-left-width: 4px;
+    border-left-color: rgb(228,1,58);   
+    padding-left: 10px;
+    /*transition-timing-function: cubic-bezier(0.7,0.1,0.8,0.2); 
+    transition-property: border-left;
+    transition-duration: 2s;*/
+}
+/* Navi Dropdown in mobile view */
+.navbarcollapsemain.show {
+    padding-bottom: 10px;
+    background-color: #ffffff;
+}
+.navbarcollapsemain.collapsing {
+    overflow: hidden;
+    width: 100%;
+    background-color: #ffffff;    
+}
+/* Navi Dropdown-Arrow 
+.dropdown-toggle:after {
+    display:block;
+    content:" ";
+    float:right;        
+    border-color:transparent;
+    border-style:solid;
+    /*border-width:5px 0 5px 5px; /* Pfeil zeigt nach rechts
+    border-width: 5px 5px 0 5px; /* Pfeil zeigt nach unten */
+    /*border-left-color:#cccccc; /* Pfeil zeigt nach rechts 
+    border-top-color:#cccccc; /* Pfeil zeigt nach unten 
+    margin: 10px 0 0 5px;
+}*/
+/* Navpoint of nav-level 1 - Mouseover or klick */
+.nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
+    background-color: transparent;    
+}
+/* Navlinks 1 stage */
+.white .navbarnavmain .nav-link {
+    color: #ffffff;
+    font-weight: 200;
+}
+.white .form-inline .nav-link {
+    color: #ffffff;
+}
+.white .form-inline .dropdown-menu .nav-link {
+    color: #000000;
+}
+.white .show .navbarnavmain .nav-link {
+    color: #000000;
+    font-weight: 200;
+}
+.white .navbarnavmain .nav-link.active {
+    color: #ffffff;
+}
+.white .show .navbarnavmain .nav-link.active {
+    color: #000000;
+}
+.black .navbarnavmain .nav-link {
+    color: #000000 !important;
+}
+.black .navbarnavmain .nav-link:hover {
+    color: rgb(228,1,58) !important;
+}
+/* First Links Uppercase */
+.navlinkmain {
+    text-transform: uppercase; 
+}
+.navbarnavmain li a:hover {
+    /*border-left-color: rgb(228,1,58);*/
+    color: rgb(228,1,58);
+    background-color: transparent;
+}
+a.dropdown-item {
+    color: #000000 !important;
+}
+a.dropdown-item:hover {
+    color: rgb(228,1,58) !important;
+}
+
+.nav > li > a:hover, .nav > li > a:focus {
+    color: rgb(228,1,58);
+    background-color: transparent;
+}
+.navbar-collapse.in {
+    overflow: auto;
+}
+.collapse.in > .nav > li > a {
+    color: #000000;
+}
+a.nav-link:hover {
+    color: rgb(228,1,58) !important;
+}
+/* Navi Submenue Dropdown-Arrow */
+/*.dropdown-item:after {
+    margin-top: -15px;
+    /*border-width:5px 0 5px 5px;
+    border-top-color:transparent;
+    border-left-color:#cccccc;
+    border-top: .3em solid transparent;
+    border-bottom: .2em solid transparent;
+    border-left: .3em solid #cccccc;
+}*/
+.dropdown-submenu {    
+    position: relative;
+}
+/* Submenu position 
+.dropdown-submenu >.dropdown-menu {
+     top:0;
+     left:100%;
+     margin-top:-1px;
+     /*margin-left:-1px;  
+}*/
+.dropdown-item {
+    padding: .1rem 1.5rem;
+}
+.dropdown-item.active, .dropdown-item:active {
+    background-color: transparent;
+}
+/*.dropdown-submenu:hover>.dropdown-menu {
+     display:block;
+}*/
+/* Navi Submenue Dropdown-Arrow 
+.dropdown-submenu>a:after {
+     display:block;
+     content:" ";
+     float:right;
+     width:0;
+     height:0;
+     border-color:transparent;
+     border-style:solid;
+     border-width:5px 0 5px 5px;
+     border-left-color:#cccccc;
+     margin-top:5px;
+     margin-right:-10px;
+}*/
+.dropdown-submenu.pull-left {
+     float: none;
+}
+
+.dropdown-submenu.pull-left>.dropdown-menu {
+     left:-100%;
+     margin-left:10px;
+     -webkit-border-radius:6px 0 6px 6px;
+     -moz-border-radius:6px 0 6px 6px;
+     border-radius:6px 0 6px 6px;
+}
+
+/** Language */
+.languagebox {
+    flex-direction: row;
+}
+/* Language Buttons */
+.langua a { 
+    color: #ffffff;
+    background-color: #cccccc;
+    
+}
+.langua a.active {
+    background-color: rgb(228,1,58) !important;    
+}
+
+.langua a:hover {
+    color: #ffffff !important;
+    background-color: #666666 !important;
+}
+
+/** Anchors */
+.anchor {
+    display: block;
+    position: relative;
+    top: -80px;
+    visibility: hidden;
+}
+
+@media (min-width: 600px) {
+    
+}
+
+/* navbar-expand-sx, Small devices (landscape phones) */
+/*@media (min-width: 768px) {  */ 
+
+/* navbar-expand-sm, Medium devices (tablets) */
+/*@media (min-width: 768px) {  */ 
+
+/* navbar-expand-lg, Large devices (dekstops) */
+@media (min-width: 992px) { 
+    
+/* navbar-expand-xl, Extra large devices (large desktops)
+@media (min-width: 1200px) { */
+    /* Brand Logo */
+    #navlogo {
+        height: 60px;        
+    }  
+    /** Navigation */
+    .navbarbrandmain {   
+        margin-left: 5px;
+    }
+    .mainnav {         
+        right: auto;
+        left: auto;	
+        padding-bottom: 0;   
+        transition: all 0.1s linear;          
+    }   
+    #navline {            
+        margin-top: 0;
+    }  
+    .navbar-collapse.show {
+        padding-bottom: 10px;
+        background-color: transparent;
+    }
+    /* Navi Links */
+    .mainnav .navbarnavmain > .nav-item, .mainnav .navbarnavmain > .nav-item .nav-link {
+        padding-top: 12px;
+    }
+    /* Navi Active Point */
+    .mainnav .navbarnavmain > li > a.nav-link.active {        
+        background-color: transparent;        
+        border-bottom-style: solid;
+        border-bottom-width: 4px;
+        border-bottom-color: rgb(228,1,58);    
+        border-left-style: none;           
+        /*transition-timing-function: cubic-bezier(0.7,0.1,0.8,0.2); 
+        transition-property: border-bottom;
+        transition-duration: 2s;*/
+        /*margin-bottom: -4px;*/
+    }   
+    .navbar-collapse.show {
+        padding-bottom: 0;
+    }
+ 
+}
+
+/*@media (min-width: 974px) {
+     Brand Logo 
+    #navlogo {
+        height: 60px;        
+    }  
+}*/
