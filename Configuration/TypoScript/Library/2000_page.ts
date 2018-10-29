@@ -62,20 +62,20 @@ tt_content.stdWrap {
 #    field = header
 #    case = lower
 #    replacement {
-#      # Mit Regex alle Leerzeichen durch Bindestriche ersetzen
+#      # Use Regex to replace all spaces with hyphens
 #      10 {
 #        search = / /
 #        useRegExp = 1
 #        replace = -
 #      }
-#      # Mit Regex alle unerlaubten Zeichen entfernen 
+#      # Use Regex to remove all unauthorized characters 
 #      20 {
 #        search = /[^a-zA-Z0-9-]/
 #        useRegExp = 1
 #        replace = 
 #      }
 #    }
-#    # Anker aber nur setzen, wenn der Content-Block mit Anker umschlossen werden soll
+#    # But only set anchor if the content block should be enclosed with an anchor
 #    if.isTrue.field = sectionIndex
 #  }
 }
