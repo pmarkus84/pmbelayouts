@@ -1,1 +1,3 @@
 Resources/* linguist-vendored
+Configuration/TSconfig/* linguist-vendored
+Configuration/TypoScript/* linguist-vendored
