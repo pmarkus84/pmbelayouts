@@ -60,6 +60,7 @@
 				<f:if condition="{pagination.hasLessPages}">
 					<li>…</li>
 				</f:if>
+                                <!-- TODO: Error between site 3 and 4, no Slash here -->
 				<f:for each="{pagination.pages}" as="page" iteration="iterator">
                                         <f:if condition="{page.number} > 1">&nbsp; | &nbsp;</f:if>
 					<f:if condition="{page.isCurrent}">
@@ -85,7 +86,7 @@
 				</f:if>
 				<f:if condition="{pagination.displayRangeEnd} < {pagination.numberOfPages}">
 					<li class="last">
-						<f:widget.link addQueryStringMethod="GET" arguments="{currentPage: pagination.numberOfPages}">{pagination.numberOfPages}</f:widget.link>
+                                            <f:widget.link addQueryStringMethod="GET" arguments="{currentPage: pagination.numberOfPages}">&nbsp; | &nbsp; {pagination.numberOfPages}</f:widget.link>
 					</li>
 				</f:if>
 				<f:if condition="{pagination.nextPage}">
