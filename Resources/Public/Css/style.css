@@ -413,6 +413,14 @@ div.slidercontent {
     */
     /*background-color: #000000;*/
 }
+.tx_newsslider .flex-caption {
+    position: absolute;
+}
+.tx_newsslider .flex-caption .caption-title a, .tx_newsslider .flex-caption .caption-text {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
 
 /**
  *  Content Readmore Button
@@ -551,6 +559,11 @@ div.slidercontent {
     width: 90px;
     margin-left: auto;
     margin-right: auto;
+}
+
+/** Videos */
+audio, canvas, progress, video {	
+    width: 100%;
 }
 
 

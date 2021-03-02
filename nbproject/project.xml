@@ -3,7 +3,7 @@
     <type>org.netbeans.modules.php.project</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/php-project/1">
-            <name>PM-Typo3-BELayouts</name>
+            <name>PM-Typo3-BELayouts (prod)</name>
         </data>
     </configuration>
 </project>

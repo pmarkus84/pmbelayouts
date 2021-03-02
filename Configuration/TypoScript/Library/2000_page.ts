@@ -88,7 +88,7 @@ page {
         config {
             
             ## Typo3 Errormessages (0=on, 1=off)
-            contentObjectExceptionHandler = 1
+            contentObjectExceptionHandler = 0
             ## Set DocType to html5 and langKey to DE
             doctype = html5
             
@@ -118,10 +118,10 @@ page {
             
             
             ## Compress Data
-            compressCss = 1
+            compressCss = 0
             #compressJs = 1
             ## Merge all files
-            concatenateCss = 1
+            concatenateCss = 0
             #concatenateJs = 1
 
             ## TODO: rlmplanguagedetection
@@ -169,7 +169,7 @@ page.includeJSFooterlibs {
     #jquery = {$resDir}/Public/JavaScript/vendor/jquery-1.11.2.min.js
 
     #jquery.forceOnTop = 1
-    bootjs = {$resDir}/Public/bootstrap4/js/bootstrap.min.js
+    bootjs = {$resDir}/Public/bootstrap4/js/bootstrap.bundle.min.js
     bs4navbar = {$resDir}/Public/JavaScript/vendor/bootstrap-4-navbar.js
     #Slider-buttons doesn´t run if this is included -> solution in function.js
     smoothjs = {$resDir}/Public/JavaScript/vendor/smoothscroll.js
@@ -182,8 +182,12 @@ page.includeJSFooter {
 
 page.10 = FLUIDTEMPLATE
 page.10 {
-    partialRootPath = {$resDir}/Private/Partials
-    layoutRootPath = {$resDir}/Private/Layouts
+    partialRootPaths {
+        30 = {$resDir}/Private/Partials 
+    }
+    layoutRootPaths {
+        30 = {$resDir}/Private/Layouts
+    }
     #file = {$resDir}/Private/Templates/DefaultTemplate.html
 
     ## Backend Layouts
@@ -269,7 +273,9 @@ page {
             #lib.language.typolink.additionalParams = &L=1
         }
         page.10.variables.languageid.value = 1
-[global]
+[else]
+    page.config.language = default
+[end]
 
 ## TODO: rlmplanguagedetection
 plugin.tx_rlmplanguagedetection_pi1 {
@@ -280,4 +286,17 @@ plugin.tx_rlmplanguagedetection_pi1 {
     #}
     defaultLang = de
     limitToLanguages = de,en
+}
+
+loginPage = PAGE
+loginPage  {
+    typeNum = 528456
+    10 < tt_content.list.20.pmbelayouts_pmbelayouts
+ 
+    config {
+        disableAllHeaderCode = 1
+        xhtml_cleaning = 0
+        admPanel = 0
+        additionalHeaders = Content-type:application/octet-stream
+    }
 }

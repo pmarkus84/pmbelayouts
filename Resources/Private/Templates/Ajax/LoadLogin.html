@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<!--
+Copyright (c) 2021 Markus Blöchl <mbloechl@parat.eu>.
+All rights reserved. This program and the accompanying materials
+are made available under the terms of the Eclipse Public License v1.0
+which accompanies this distribution, and is available at
+http://www.eclipse.org/legal/epl-v10.html
+
+Contributors:
+   Markus Blöchl <mbloechl@parat.eu> - initial API and implementation and/or initial documentation
+-->
+<f:comment><!-- login --></f:comment>
+<form class="form-inline" action="/" enctype="multipart/form-data" method="post" class="loginform">        
+    <div class="form-group">
+        <input name="logintype" value="login" type="hidden" />
+        <input name="pid" value="42" type="hidden" />
+        <div class="nav-link">
+            <label for="name" class="sr-only">Username</label>
+            <input name="user" size="7" placeholder="Username" value="" onfocus="if(this.value=='Username') this.value='';" onblur="if(this.value=='') this.value='Username';" type="text" id="user" class="form-control form-control-sm mr-sm-2" required />
+            <label for="pass" class="sr-only">Password</label>
+            <input name="pass" size="7" value="Dein Passwort" onfocus="if(this.value=='Dein Passwort') this.value='';" onblur="if(this.value=='') this.value='Dein Passwort';" data-rsa-encryption="" type="password" id="pass" class="form-control form-control-sm mr-sm-2" />
+            <input name="submit" value="Login" type="submit" class="btn btn-primary btn-sm" />
+        </div>
+    </div>
+</form>

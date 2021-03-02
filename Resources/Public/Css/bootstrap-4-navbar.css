@@ -32,9 +32,9 @@
     .dropdown-submenu > .dropdown-menu { 
         margin-top: -39px;
     }    
-    .dropdown-menu.show {
+/*    .dropdown-menu.show {
         display: none;
-    }
+    }*/
     .dropdown:hover .dropdown-menu {
         display: flex;
         flex-direction: column;

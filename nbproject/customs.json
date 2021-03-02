@@ -27,6 +27,7 @@
             "description": "<b style=\"color:#3399FF\">Typo3-Fluid<\/b>",
             "doc": "Then condition for if-statement."
         },
+        "vhs:security.allow": {},
         "f:render": {
             "description": "<b style=\"color:#3399FF\">Typo3-Fluid<\/b>",
             "doc": "Render a Partial of a template.",

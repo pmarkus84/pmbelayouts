@@ -15,6 +15,18 @@ if (!defined('TYPO3_MODE')) {
     die ('Access denied.');
 }
 
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+	'Pmwebdesign.' . $_EXTKEY,
+	'Pmbelayouts',   // Plugin
+	[
+            'Ajax' => 'loadLogin, loadLogout'
+        ],
+        // non-cacheable actions
+        [
+            'Ajax' => 'loadLogin, loadLogout'
+        ]
+);
+
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
     '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:' . $_EXTKEY . '/Configuration/TSconfig/Page.txt">'
 );

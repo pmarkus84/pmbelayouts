@@ -138,7 +138,7 @@ Contributors:
 }
 /* First Links Uppercase */
 .navlinkmain {
-    text-transform: uppercase; 
+    /*text-transform: uppercase;*/ 
 }
 .navbarnavmain li a:hover {
     /*border-left-color: rgb(228,1,58);*/

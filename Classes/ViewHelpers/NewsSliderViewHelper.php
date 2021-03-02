@@ -1,17 +1,32 @@
 <?php
 
 /*
- * Copyright (c) 2018 Markus Puffer <m.puffer@pm-webdesign.eu>.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
+ * Copyright (C) 2020 pm-webdesign.eu 
+ * Markus Puffer <m.puffer@pm-webdesign.eu>
  *
- * Contributors:
- *    Markus Puffer <m.puffer@pm-webdesign.eu> - initial API and implementation and/or initial documentation
+ * All rights reserved
+ *
+ * This script is part of the TYPO3 project. The TYPO3 project is
+ * free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * The GNU General Public License can be found at
+ * http://www.gnu.org/copyleft/gpl.html.
+ *
+ * This script is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * This copyright notice MUST APPEAR in all copies of the script!
  */
 
 namespace Pmwebdesign\Pmbelayouts\ViewHelpers;
+
+use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;
+use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 /**
  * Description of NewsSlider
@@ -19,18 +34,31 @@ namespace Pmwebdesign\Pmbelayouts\ViewHelpers;
  *
  * @author Markus Puffer <m.puffer@pm-webdesign.eu>
  */
-class NewsSliderViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper
+class NewsSliderViewHelper extends AbstractViewHelper
 {
     /**
-     * 
-     * @param int $newscount
-     * @param int $newsindex
-     * @param string $newsstatus
+     * Initialize Arguments
+     */
+    public function initializeArguments()
+    {       
+        $this->registerArgument('newscount', 'int', 'Count news', true);
+        $this->registerArgument('newsindex', 'int', 'Index of actually news', true);
+        $this->registerArgument('newsstatus', 'string', 'Status of news', true);
+    }
+    
+    /**
      * @return int
      */
-    public function render($newscount, $newsindex, $newsstatus)
+    public static function renderStatic(
+            array $arguments,
+            \Closure $renderChildrenClosure,
+            RenderingContextInterface $renderingContext)
     {
-        // TODO: If column = 1 then error
+        $newscount = $arguments['newscount'];
+        $newsindex = $arguments['newsindex'];
+        $newsstatus = $arguments['newsstatus'];
+        
+        // Set columns
         if($newscount == 1) {
             $spalten = 1;
         } elseif ($newscount == 2) {
@@ -58,7 +86,6 @@ class NewsSliderViewHelper extends \TYPO3\CMS\Fluid\Core\ViewHelper\AbstractView
             } elseif ($newsindex == $spaltenindex && $newsstatus == 'after' && ($newsindex <= $allColumnsCountIndex)) {
                 return 3; // End Normal
             } elseif(($newsindex == ($spaltenindex + 1)) && ($newsstatus == 'before') && ($newsindex < $allColumnsCountIndex)) {
-                //echo "<script>alert('Newsindex: ".$newsindex."<br />Spaltenindex: ".$spaltenindex."')</script>";
                 return 2; // Begin Normal           
             } elseif($newsindex > $spaltenindex) {
                 $spaltenindex += $spalten;

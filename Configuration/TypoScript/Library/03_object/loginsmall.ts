@@ -17,6 +17,9 @@ temp.login {
 		parameter.data = TSFE:id
 		returnLast = url
 	} 
+        # TODO: Test no cache
+        25 = TEXT
+        25.value = ?no_cache=1
 	30 = TEXT
 	30.value = " enctype="multipart/form-data" method="post" class="loginform">        
 	40 = TEXT
@@ -44,47 +47,87 @@ temp.logout = COA_INT
 temp.logout {
         5 = TEXT
 	5.typolink {
-		parameter = {$pid_logout_redirect}
-		returnLast = url
+		parameter = {$uidLogin}
+		#returnLast = url
 	} 
         5.wrap = <form class="form-inline mt-2" target="_top" method="post" action="
         6 = TEXT
         6.typolink {
-               parameter.data = TSFE:id
-               returnLast = url 
+               #parameter.data = TSFE:id
+               parameter.data = {$uidLogin}
+               #returnLast = url 
         }
+        # TODO: Test no cache
         7 = TEXT
-        7.value = ">
+        7.value = ?no_cache=1
+        8 = TEXT
+        8.value = ">
         10 = TEXT
 	10.dataWrap = <div class="form-group"><div style="text-transform:none" class="nav-link logoutname mr-sm-2">{TSFE:fe_user|user|first_name} {TSFE:fe_user|user|last_name}</div>
 	20 = TEXT
 	20.value = <div class="nav-link"><div class="btn-group dropdown"><input name="submit" value="Logout" type="submit" class="btn btn-primary btn-sm"><button type="button" class="btn btn-secondary btn-sm dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="sr-only">Toggle Dropdown</span></button><div class="dropdown-menu">
+#        22 = TEXT
+#        22.value = User bearbeiten
+#        22.typolink {            
+#            #parameter.data = page:uid
+#            # Extension staffm page
+#            parameter = 16
+#            additionalParams = &tx_staffm_staffm[controller]=Mitarbeiter&tx_staffm_staffm[action]=edit&tx_staffm_staffm[userKey]=auswahlUsr&tx_staffm_staffm[mitarbeiter]={TSFE:fe_user|user|uid}
+#            additionalParams.insertData = 1
+#            useCacheHash = 1
+#            ATagParams = class="nav-link"
+#            #additionalParams = ueber-uns/mitarbeiter/?tx_staffm_staffm[controller]=Mitarbeiter&tx_staffm_staffm[action]=edit&tx_staffm_staffm[mitarbeiter]=
+#        }        
         22 = TEXT
-        22.value = User bearbeiten
+        22.value = Profil bearbeiten
         22.typolink {            
             #parameter.data = page:uid
             # Extension staffm page
-            parameter = 16
-            additionalParams = &tx_staffm_staffm[controller]=Mitarbeiter&tx_staffm_staffm[action]=editUser&tx_staffm_staffm[mitarbeiter]={TSFE:fe_user|user|uid}
-            additionalParams.insertData = 1
-            useCacheHash = 1
-            ATagParams = class="nav-link"
-            #additionalParams = ueber-uns/mitarbeiter/?tx_staffm_staffm[controller]=Mitarbeiter&tx_staffm_staffm[action]=edit&tx_staffm_staffm[mitarbeiter]=
-        }   
-        23 = TEXT
-        23.value = List Mitarbeiter (Q)
-        23.typolink {            
-            #parameter.data = page:uid
-            # Extension staffm page
             parameter = 55
-            additionalParams = &tx_staffm_staffmvorg[controller]=Mitarbeiter&tx_staffm_staffmvorg[action]=listVgs&tx_staffm_staffmvorg[mitarbeiter]={TSFE:fe_user|user|uid}
+            additionalParams = &tx_staffm_staffmvorg[controller]=Mitarbeiter&tx_staffm_staffmvorg[action]=edit&tx_staffm_staffmvorg[userKey]=auswahlUsr&tx_staffm_staffmvorg[art]=profileedit&tx_staffm_staffmvorg[mitarbeiter]={TSFE:fe_user|user|uid}
             additionalParams.insertData = 1
             useCacheHash = 1
             ATagParams = class="nav-link"
             #additionalParams = ueber-uns/mitarbeiter/?tx_staffm_staffm[controller]=Mitarbeiter&tx_staffm_staffm[action]=edit&tx_staffm_staffm[mitarbeiter]=
-        }   
+        }    
+        23 = TEXT
+        23.value = Anträge
+        23.typolink {
+            # Extension forms page
+            parameter = 127
+            #additionalParams = &tx_staffm_staffm[controller]=Mitarbeiter&tx_staffm_staffmvorg[action]=edit&tx_staffm_staffmvorg[userKey]=auswahlUsr&tx_staffm_staffmvorg[art]=profileedit&tx_staffm_staffmvorg[mitarbeiter]={TSFE:fe_user|user|uid}
+            #additionalParams.insertData = 1
+            useCacheHash = 1
+            ATagParams = class="nav-link"
+        }
+        24 = TEXT
+        24.value = Projekte
+        24.typolink {
+            # Extension forms page
+            parameter = 124
+            #additionalParams = &tx_staffm_staffm[controller]=Mitarbeiter&tx_staffm_staffmvorg[action]=edit&tx_staffm_staffmvorg[userKey]=auswahlUsr&tx_staffm_staffmvorg[art]=profileedit&tx_staffm_staffmvorg[mitarbeiter]={TSFE:fe_user|user|uid}
+            #additionalParams.insertData = 1
+            useCacheHash = 1
+            ATagParams = class="nav-link"
+        }
         25 = TEXT
-        25.value = </div></div>
+        25.value = Einstellblatt
+        25.typolink {
+            # Extension adjustmentsheet page
+            parameter = 139            
+            useCacheHash = 1
+            ATagParams = class="nav-link"
+        }
+        26 = TEXT
+        26.value = Mitarbeiter bearbeiten
+        26.typolink {
+            # Extension adjustmentsheet page
+            parameter = 145          
+            useCacheHash = 1
+            ATagParams = class="nav-link"
+        }
+        28 = TEXT
+        28.value = </div></div>
 	30 = TEXT	
 	30.value = <input type="hidden" name="logintype" value="logout" >
                    <input type="hidden" name="pid" value="{$pid_feuser}">

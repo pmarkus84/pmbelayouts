@@ -10,6 +10,9 @@ defaultDescription = Typo3 Backend-Layouts von PM-Webdesign, Templates als Distr
 #cat=Grundeinstellungen//1; type=text; label=Basis-URL: Set the Basis Url of the website
 baseUrl = https://intranet/
 
+#cat=Grundeinstellungen//1; type=text; label=Login-Page: Set the uid of the site
+uidLogin = 138
+
 # Set max imgage size -> does not work
 #styles.content.imgtext.maxW = 3000
 
