@@ -748,6 +748,7 @@ table.filelisttable tr:first-child td:last-child {
 .frame-layout-8 ul li {
     margin-right: 15px;
 }
+/* File Links */
 .frame-threecolumn ul {
     border: 1px solid #666666;
     border-radius: 10px;
@@ -757,6 +758,12 @@ table.filelisttable tr:first-child td:last-child {
     width: 100%;
     margin: 0;
     padding: 15px;   
+}
+/* Content text & media */
+.frame-threecolumn .ce-textpic {
+    border: 1px solid #666666;
+    border-radius: 10px;
+    padding: 20px;
 }
 /* Thumbnail PDF */
 .listthumbnail img {
