@@ -1,8 +1,8 @@
 <?php
 
 /*
- * Copyright (C) 2020 pm-webdesign.eu 
- * Markus Puffer <m.puffer@pm-webdesign.eu>
+ * Copyright (C) 2023 parat-kunststoff.eu
+ * Markus Puffer <mpuffer@parat.eu>
  *
  * All rights reserved
  *
@@ -32,7 +32,7 @@ use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
  * Class ColumncountViewHelper
  * Compute the column size for bootstrap
  *
- * @author Markus Puffer <m.puffer@pm-webdesign.eu>
+ * @author Markus Puffer <mpuffer@parat.eu>
  * @version 2.0 (2020-03-03)
  */
 class ColumncountViewHelper extends AbstractViewHelper

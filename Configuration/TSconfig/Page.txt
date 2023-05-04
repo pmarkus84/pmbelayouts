@@ -259,9 +259,9 @@ mod.web_layout.BackendLayouts {
                     1 {
                         columns {
                             1 {
-                                name = text                                
+                                name = text
                                 colPos = 0
-                            }                            
+                            }
                             2 {
                                 name = sidebar
                                 colPos = 2

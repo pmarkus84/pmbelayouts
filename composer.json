@@ -1,19 +1,39 @@
 {
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://composer.typo3.org/"
+        }
+    ],
     "name": "pmwebdesign/pmbelayouts",
     "type": "typo3-cms-extension",
     "description": "Various Backend Layouts",
+    "version": "2.0.0",
+    "keywords": [
+        "TYPO3",
+        "extension"
+    ],
+    "homepage": "https://www.parat-kunststoff.eu",
     "authors": [
         {
             "name": "Markus Puffer",
             "role": "Developer"
         }
     ],
+    "license": [
+        "GPL-3.0+"
+    ],
     "require": {
-        "typo3/cms-core": "^8.7.1"
+        "typo3/cms-core": ">=10.4.0,<=10.4.99"
     },
     "autoload": {
         "psr-4": {
             "Pmwebdesign\\Pmbelayouts\\": "Classes"
+        }
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "pmbelayouts"
         }
     }
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
     <file source-language="en" datatype="plaintext" original="messages" date="2016-01-20T10:57:53Z" product-name="pmbelayouts">
-        <header/>
+        <header />
         <body>
             <trans-unit id="pmbelayouts.create">
                 <source>Create</source>
@@ -35,15 +35,24 @@
             </trans-unit>
             <trans-unit id="pmbelayouts.topage">
                 <source>To the page</source>
-            </trans-unit>    
+            </trans-unit>
             <trans-unit id="paginate_previous">
                 <source>Previous</source>
-            </trans-unit>       
+            </trans-unit>
             <trans-unit id="paginate_next">
                 <source>Next</source>
-            </trans-unit> 
+            </trans-unit>
             <trans-unit id="paginate_overall" xml:space="preserve">
-                <source>Page %s of %s.</source>                
+                <source>Page %s of %s.</source>
+            </trans-unit>
+            <trans-unit id="pmbelayouts.username">
+                <source>Username</source>
+            </trans-unit>
+            <trans-unit id="pmbelayouts.password">
+                <source>Password</source>
+            </trans-unit>
+            <trans-unit id="pmbelayouts.editProfile">
+                <source>Edit profile</source>
             </trans-unit>
         </body>
     </file>

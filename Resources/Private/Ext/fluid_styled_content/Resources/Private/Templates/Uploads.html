@@ -1,0 +1,64 @@
+<f:layout name="Default"/>
+<f:section name="Main">
+
+    <f:if condition="{files}">
+        <ul class="ce-uploads">
+            <!-- Parat Table -->
+            <f:if condition="{data.layout} == '4'">
+                <table class="filelisttable">
+            </f:if>
+            <f:for each="{files}" as="file" iteration="fileIterator">
+                <f:if condition="{data.layout} == '4'">
+                    <tr>
+                        <td>
+                </f:if>
+                <li>
+                    <f:if condition="{data.uploads_type} == 1">
+                        <f:comment><img src="{f:uri.resource(path: 'Icons/FileIcons/{file.extension}.gif', extensionName: 'frontend')}" alt=""></f:comment>
+                        <a href="{file.publicUrl}" {f:if(condition:data.target,then: ' target="{data.target}"')}
+                        {f:if(condition: file.title, then: ' title="{file.title}"')}>
+                        <img style="width:70px" src="fileadmin/private/images/fileicons/set1/svg/{file.extension}.svg"
+                             alt="">
+                        </a>
+                    </f:if>
+                    <f:if condition="{data.uploads_type} == 2">
+                        <f:if condition="{f:uri.image(src: 'file:{f:if(condition: file.originalFile, then: \'file:{file.originalFile.uid}\', else: \'file:{file.uid}\')}')} != '/'">
+                            <f:then>
+                                <a class="listthumbnail" href="{file.publicUrl}" {f:if(condition:data.target,then: '
+                                target="{data.target}"')} {f:if(condition: file.title, then: ' title="{file.title}"')}>
+                                <f:media file="{file}" width="150" alt="{file.properties.alternative}"/>
+                                </a>
+                            </f:then>
+                            <f:else>
+                                <img style="width:70px"
+                                     src="fileadmin/private/images/fileicons/set1/svg/{file.extension}.svg" alt="">
+                            </f:else>
+                        </f:if>
+                    </f:if>
+                    <div {f:if(condition:'{data.uploads_type} == 2', then: 'style="hyphens:auto"')}>
+                    <a href="{file.publicUrl}" {f:if(condition:data.target,then:'target="{data.target}"')}{f:if(condition: file.title, then: ' title="{file.title}"')}>
+                    <span style="font-weight: bold" class="ce-uploads-fileName">{f:if(condition: file.properties.title, then: file.properties.title, else: file.name) -> f:format.htmlspecialchars()}</span>
+
+                    <f:if condition="{file.properties.description}">
+                        <f:if condition="{data.uploads_description}">
+                            <span class="ce-uploads-description">{file.properties.description}</span>
+                        </f:if>
+                    </f:if>
+                    <f:if condition="{data.filelink_size}">
+                        <span class="ce-uploads-filesize"><f:format.bytes value="{file.properties.size}"/></span>
+                    </f:if>
+                    </a>
+                    </div>
+                </li>
+                <f:if condition="{data.layout} == '4'">
+                    </td>
+                    </tr>
+                </f:if>
+            </f:for>
+            <f:if condition="{data.layout} == '4'">
+                </table>
+            </f:if>
+        </ul>
+    </f:if>
+
+</f:section>

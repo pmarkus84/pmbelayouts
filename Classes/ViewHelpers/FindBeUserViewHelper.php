@@ -1,8 +1,8 @@
 <?php
 
 /*
- * Copyright (C) 2019 pm-webdesign.eu 
- * Markus Puffer <m.puffer@pm-webdesign.eu>
+ * Copyright (C) 2023 parat-kunststoff.eu
+ * Markus Puffer <mpuffer@parat.eu>
  *
  * All rights reserved
  *
@@ -31,7 +31,7 @@ use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 /**
  * Description of FindBeUserViewHelper
  *
- * @author Markus Puffer <m.puffer@pm-webdesign.eu>
+ * @author Markus Puffer <mpuffer@parat.eu>
  */
 class FindBeUserViewHelper extends AbstractViewHelper
 {

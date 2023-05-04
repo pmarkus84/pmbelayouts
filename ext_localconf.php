@@ -16,7 +16,7 @@ if (!defined('TYPO3_MODE')) {
 }
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-	'Pmwebdesign.' . $_EXTKEY,
+	'Pmwebdesign.pmbelayouts',
 	'Pmbelayouts',   // Plugin
 	[
             'Ajax' => 'loadLogin, loadLogout'
@@ -28,15 +28,15 @@ if (!defined('TYPO3_MODE')) {
 );
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
-    '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:' . $_EXTKEY . '/Configuration/TSconfig/Page.txt">'
+    '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:pmbelayouts/Configuration/TSconfig/Page.txt">'
 );
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addUserTSConfig(
-    '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:' . $_EXTKEY . '/Configuration/TSconfig/User.txt">'
+    '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:pmbelayouts/Configuration/TSconfig/User.txt">'
 );
 
 // TODO: Test Language Files
-//$GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['EXT:cms/locallang_tca.xlf'][] = 'EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang.xlf';
-//$GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['en']['EXT:cms/locallang_tca.xlf'][] = 'EXT:' . $_EXTKEY . '/Resources/Private/Language/en.locallang.xlf';
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['EXT:frontend/Resources/Private/Language/locallang_tca.xlf'][] = 'EXT:pmbelayouts/Resources/Private/Language/locallang.xlf';
+$GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['EXT:t3sbootstrap/Resources/Private/Language/locallang.xlf'][] = 'EXT:pmbelayouts/Resources/Private/Language/locallang.xlf';
 //
 //$GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['EXT:pmbelayouts/Resources/Private/Language/locallang.xlf'][] = 'EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang.xlf';
 //$GLOBALS['TYPO3_CONF_VARS']['SYS']['locallangXMLOverride']['en']['EXT:pmbelayouts/Resources/Private/Language/en.locallang.xlf'][] = 'EXT:' . $_EXTKEY . '/Resources/Private/Language/en.locallang.xlf';

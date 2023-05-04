@@ -23,8 +23,11 @@ class AjaxController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         
     }
     
-    public function loadLogoutAction()
+    public function loadLogoutAction(): void
     {
-        
+        if($this->request->hasArgument('dropdownAnimate')) {
+            $dropdownAnimate = $this->request->getArgument("dropdownAnimate");
+            $this->view->assign('dropdownAnimate', $dropdownAnimate);
+        }
     }
 }

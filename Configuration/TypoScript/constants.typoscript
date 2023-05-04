@@ -1,0 +1,55 @@
+#<INCLUDE_TYPOSCRIPT: source="FILE:EXT:css_styled_content/static/constants.txt">
+#<INCLUDE_TYPOSCRIPT: source="FILE:EXT:fluid_styled_content/Configuration/TypoScript/constants.typoscript">
+<INCLUDE_TYPOSCRIPT: source="DIR: ./Library" extensions="typoscript">
+#
+resDir = EXT:pmbelayouts/Resources
+#
+##cat=Grundeinstellungen//1; type=text; label=Default-Werte für Meta-tags
+defaultDescription = PARAT Intranet
+
+##cat=Extensions//1; type=boolean; label=Extension Staffm aktiv
+extStaffmActive = 0
+
+##cat=Extensions//2; type=boolean; label=Extension Forms aktiv
+extFormsActive = 0
+
+#
+##cat=Grundeinstellungen//1; type=text; label=Basis-URL: Set the Basis Url of the website
+#baseUrl =
+#
+##cat=Grundeinstellungen//1; type=text; label=Login-Page: Set the uid of the site
+#uidLogin =
+#
+## Set max image size -> does not work
+##styles.content.imgtext.maxW = 3000
+#
+##cat=Grundeinstellungen//1; type=int+; label=Backgroundimage width for full presentation:
+#bgImage.bgImageWidth=1600
+#
+##cat=Grundeinstellungen//2; type=int+; label=Backgroundimage height for full presentation:
+#bgImage.bgImageHeight=300
+#
+##Constant for Morebutton <p class="content-readmore" style="margin-top:-15px">...</p> -> check Javascript
+#MORE = <div class="content-readmore">... Weiterlesen.</div>
+#
+##Language Settings for Buttons
+#languagesetd = active
+#languagesete =
+#
+## Extensions
+#
+##cat=LDAP Synchronisierung (ig_ldap_sso_auth) - Program Pid
+#pidPrograms =
+#
+## Bootstrap
+# Navbar
+bootstrap.navbar.image.width = 250
+bootstrap.navbar.image.height = auto
+bootstrap.navbar.feUserName = true
+
+
+#
+#[globalVar = GP:L = 1]
+#        languagesete = active
+#        languagesetd =
+#[global]

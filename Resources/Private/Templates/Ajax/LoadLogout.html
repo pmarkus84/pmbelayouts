@@ -1,39 +1,45 @@
-<!DOCTYPE html>
-<!--
-Copyright (c) 2021 Markus Blöchl <mbloechl@parat.eu>.
-All rights reserved. This program and the accompanying materials
-are made available under the terms of the Eclipse Public License v1.0
-which accompanies this distribution, and is available at
-http://www.eclipse.org/legal/epl-v10.html
-
-Contributors:
-   Markus Blöchl <mbloechl@parat.eu> - initial API and implementation and/or initial documentation
--->
 {namespace h = Pmwebdesign\Pmbelayouts\ViewHelpers}
-<f:comment><!-- logout --></f:comment>
-<form class="form-inline" target="_top" method="post" action="/">
-    <div class="form-group">
-        <div style="text-transform:none" class="nav-link logoutname mr-sm-2">
-            <div class="row">
-                <div class="col-sm-auto text-center justify-content-center align-self-center">
-                    <h:getNameLoggedInUser/>
-                </div>
-            </div>
+{namespace s = Pmwebdesign\Staffm\ViewHelpers}
+
+<f:variable name="user"><h:getUser></h:getUser></f:variable>
+<form class="form-inline" action="/" enctype="multipart/form-data" method="post">
+    <div class="input-group">
+        <f:if condition="{settings.extFormsActive} == 1">
+            <f:link.page title="{f:translate(extensionName: 'forms', key: 'tx_forms_forms')}" id="taskCounter" class="btn btn-outline-secondary btn" pageUid="{s:getPageId(extensionName: 'forms_formlist', sectionName: 'settings', constantName: 'pageIdForms')}">
+                <i class="fas fa-list me-1"></i><f:render partial="../Ext/forms/Partials/FormsCount" arguments="{_all}" />
+            </f:link.page>
+        </f:if>
+        <div {f:if(condition:'{user.image}',then: 'style=\'padding:0\'')} class="btn btn-outline-secondary nonehover" title="{user.firstName} {user.lastName}">
+            <f:if condition="{user.image}">
+                <f:then>
+                    <f:image height="38px" src="{user.image.0.originalResource.publicUrl}" />
+                </f:then>
+                <f:else>
+                    <i class="fas fa-user me-1"></i>
+                </f:else>
+            </f:if>
         </div>
-        <div class="nav-link">
-            <div class="btn-group dropdown">
-                <input name="submit" value="Logout" type="submit" class="btn btn-primary btn-sm">
-                <button type="button" class="btn btn-secondary btn-sm dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="sr-only">Toggle Dropdown</span>
-                </button>
-                <f:comment><!-- all menu entries --></f:comment>
-                <div class="dropdown-menu">
-                                                        
-                </div>
-            </div>
-            <input type="hidden" name="logintype" value="logout" >
-            <input type="hidden" name="pid" value="{$pid_feuser}">
-            <input type="hidden" name="tx_felogin_pi1[noredirect]" value="0">	
+        <input type="hidden" name="logintype" value="logout" >
+        <input type="hidden" name="pid" value="{$pid_feuser}">
+        <input type="hidden" name="tx_felogin_pi1[noredirect]" value="0">
+        <div class="dropdown btn-group pmbelayouts-forms-dropdown">
+            <input name="submit" value="Logout" type="submit" id="logout-btn" class="btn btn-outline-secondary btn"><span class="visually-hidden">Toggle Dropdown</span>
+            <f:comment><!-- Dropdown Employee --></f:comment>
+            <button type="button" id="btnGroupDrop2" class="btn btn-outline-secondary btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"></button>
+            <ul class="dropdown-menu dropdown {dropdownAnimate}" aria-labelledby="btnGroupDrop2">
+                <f:comment><!-- Extension Staffm active? --></f:comment>
+                <f:if condition="{settings.extStaffmActive} == 1">
+                    <f:alias map="{loggedIn: '{s:finduser()}'}">
+                        <f:render partial="../Ext/staffm/Partials/Profile" arguments="{_all}" />
+                        <f:comment><!-- Extension Forms active? --></f:comment>
+                        <f:if condition="{settings.extFormsActive} == 1">
+                            <f:render partial="../Ext/forms/Partials/Forms" arguments="{_all}" />
+                        </f:if>
+                    </f:alias>
+                </f:if>
+                <li><hr class="dropdown-divider"></li>
+                <li id="fullusername" class="dropdown-item">{user.firstName} {user.lastName}</li>
+            </ul>
         </div>
     </div>
 </form>

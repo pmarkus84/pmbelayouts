@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
     <file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2016-01-20T10:57:53Z" product-name="pmbelayouts">
-        <header/>
+        <header />
         <body>
             <trans-unit id="pmbelayouts.create">
                 <source>Create</source>
@@ -42,22 +42,42 @@
             <trans-unit id="pmbelayouts.allremove">
                 <source>Remove all</source>
                 <target state="translated">Alle entfernen</target>
-            </trans-unit>  
+            </trans-unit>
             <trans-unit id="pmbelayouts.topage">
                 <source>To the page</source>
                 <target state="translated">Zur Seite</target>
-            </trans-unit>            
+            </trans-unit>
             <trans-unit id="paginate_previous">
                 <source>Previous</source>
                 <target state="translated">Vorherige</target>
-            </trans-unit>       
+            </trans-unit>
             <trans-unit id="paginate_next">
                 <source>Next</source>
                 <target state="translated">Nächste</target>
-            </trans-unit>   
+            </trans-unit>
             <trans-unit id="paginate_overall" xml:space="preserve">
                 <source>Page %s of %s.</source>
                 <target state="translated">Seite %s von %s</target>
+            </trans-unit>
+            <trans-unit space="preserve">
+                <source>Next</source>
+            </trans-unit>
+            <trans-unit id="pmbelayouts.username">
+                <source>Username</source>
+                <target state="translated">Benutzername</target>
+            </trans-unit>
+            <trans-unit id="pmbelayouts.password">
+                <source>Password</source>
+                <target state="translated">Passwort</target>
+            </trans-unit>
+            <trans-unit id="pmbelayouts.editProfile">
+                <source>Edit profile</source>
+                <target state="translated">Profil bearbeiten</target>
+            </trans-unit>
+            <trans-unit id="tx_forms_forms">
+                <source><![CDATA[<trans-unit id="tx_forms_forms">
+                <source>Forms</source>
+            </trans-unit>]]></source>
             </trans-unit>
         </body>
     </file>

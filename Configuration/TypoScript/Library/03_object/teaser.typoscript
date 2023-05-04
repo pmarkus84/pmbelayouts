@@ -1,0 +1,104 @@
+/*
+ *    Project:  PARAT Intranet - PARAT_Intranet_Konfiguration
+ *    Version:  1.0.0
+ *    Date:  18.08.2017 11:02:45
+ *    Author:  Markus Puffer <m.puffer@pm-webdesign.eu> 
+ *
+ *    Coded with Netbeans!
+ */
+
+## read the background file from page resources
+# Note: IMAGE displays a <img> element, IMG_RESOURCE returns the URL
+## include as inline style
+lib.teaser = IMG_RESOURCE
+#lib.teaser = COA
+#lib.teaser = IMAGE
+lib.teaser {    
+    file {
+            import = uploads/media/
+            ## bg header image on all pages:
+            # Bild von aktueller Seite, falls kein Bild von übergeordneter Seite
+            import.data = levelmedia:-1, slide
+            ## bg header image only on inserted page:
+            #import.data = levelmedia:-1
+            #import.data = levelfield:-1, media, slide
+            width = 1960
+            #import.data = file:current:publicUrl
+            treatIdAsReference = 1
+            # First Picture of Ressources on page
+            import.listNum = 0
+            # Random Picture of Ressources on page
+            #import.listNum = rand
+    }  
+    # Test
+#    stdWrap.wrap (         
+#         <div class="bgImg" style="background-image: url('/|'#); "></div>         
+    #)
+ 
+#    params = class="lazyload"
+#    layoutKey = srcset
+#    layout {
+#            srcset {
+#                element = <img src="###SRC###" srcset="###SOURCECOLLECTION###" ###PARAMS### ###ALTPARAMS### ###SELFCLOSINGTAGSLASH###>
+#                source = |*|###SRC### ###SRCSETCANDIDATE###,|*|###SRC### ###SRCSETCANDIDATE###
+#            }
+#    }
+#    attributePrefix = data-
+#    sourceCollection {
+#        10 {
+#            #dataKey = desktop
+#            dataKey = default
+#            width = 1260m
+#            srcset = 1260w
+#        }
+#
+#        20 {
+#            dataKey = table
+#            width = 960m
+#            srcset = 960w
+#        }
+#
+#        30 {
+#            dataKey = tablet-small
+#            width = 720m
+#            srcset = 720w
+#        }
+#
+#        40 {
+#            dataKey = medium
+#            width = 640m
+#            srcset = 640w
+#        }
+#
+#        50 {
+#            #dataKey = medium-phone
+#            dataKey = small
+#            width = 360m
+#            srcset = 360w
+#        }
+#
+#        60 {
+#            #dataKey = small
+#            dataKey = extra-small
+#            width = 320m
+#            srcset = 320w
+#        }
+#    }
+}
+
+## Always show whole image in background:cover for padding-bottom
+lib.bgimagesize = TEXT
+#$bgImage is Constant in the Basis-Template
+lib.bgimagesize.value = ({$bgImage.bgImageHeight} * 200) / {$bgImage.bgImageWidth} 
+#lib.bgimagesize.value = (lib.teaser.file.bgImageHeight * 100) / lib.teaser.file.bgImageWidth
+lib.bgimagesize.stdWrap.prioriCalc = 1
+
+## Wrap div only if image exists, see Partials/Teaser.html
+page.10.variables {
+        bgimagesize < lib.bgimagesize        
+        bgimage < lib.teaser        
+        bgimagewrap < lib.teaser
+        bgimagewrap.if.isTrue.data = lib.teaser
+        bodywidth = TEXT
+        bodywidth.value = 960, 1260
+}

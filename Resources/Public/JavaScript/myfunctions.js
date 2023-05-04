@@ -400,5 +400,5 @@ $(document).ready(function () {
     $('#carouselNews').carousel({
         /* Disable automatically start */
         interval: false
-    }); 
+    });
 });

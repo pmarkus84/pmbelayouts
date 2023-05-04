@@ -1,0 +1,4 @@
+<f:comment><!-- Edit employees / only Personal department and superiors --></f:comment>
+<f:security.ifHasRole role="PA">
+  <li><f:link.page pageUid="{s:getPageId(extensionName: 'staffm', sectionName: 'settings', constantName: 'pageIdMitarbeiter')}" class="dropdown-item">Mitarbeiter bearbeiten</f:link.page></li>
+</f:security.ifHasRole>
