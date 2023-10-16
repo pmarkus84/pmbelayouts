@@ -1,5 +1,9 @@
 {namespace vh=Pmwebdesign\Pmbelayouts\ViewHelpers}
 
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:n="http://typo3.org/ns/GeorgRinger/News/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
 <f:layout name="General"/>
 <!--
 	=====================
@@ -7,33 +11,42 @@
 -->
 
 <f:section name="content">
-    <f:form.hidden id="screensizeForm" value="default" />
     <!--TYPO3SEARCH_end-->
     <f:if condition="{news}">
         <f:then>
-            <f:if condition="{settings.templateLayout} == 1">
+            <f:if condition="{settings.templateLayout} == 100">
                 <f:then>
-                    <div class="flexcontainer mobileslider" id="news-container-{contentObjectData.uid}">
-                        <div id="carouselNews" class="carousel slide" data-ride="carousel">
+                    <f:security.ifHasRole role="Test">
+                        <f:form.hidden id="screensizeForm" name="screensizeForm" value="desktop" />
+                        <script>
+                            let screensizeForm = document.getElementById('screensizeForm');
+                            let screenArt = "";
+                            var data = {
+                                screensizew: window.innerWidth
+                            }
+                            if (data.screensizew < 760) {
+                                screenArt = "mobile";
+                            } else {
+                                screenArt = "desktop";
+                            }
+                            screensizeForm.value = screenArt;
+                            // TODO: Screensize to fluid doesn´t run - dvpm (2023-10-09)
+                            // var sVariable = '<' + 'f:variable' + ' name="screen" value="' + screenArt + '" />';
+                            // console.log(sVariable);
+                            // document.write(sVariable);
+                            //var sVariable = 'name="screen" value="' + screenArt + '"';
+                        </script>
+                    </f:security.ifHasRole>
+                    <div class="flexcontainer mobileslider bg-dark" id="news-container-{contentObjectData.uid}">
+                        <div id="carouselNews" class="carousel slide" data-bs-ride="false">
+                            <div class="carousel-indicators">
+                                <f:for each="{vh:newsSliderIndicator(newscount: '{news->f:count()}')}" as="spalte" iteration="iterator">
+                                    <button type="button" data-bs-target="#carouselNews" data-bs-slide-to="{spalte}"
+                                            class="{f:if(condition: '{iterator.isFirst}', then: 'active')}"></button>
+                                </f:for>
+                            </div>
                             <div class="carousel-inner">
                                 <f:for each="{news}" as="newsItem" iteration="iterator">
-                                    <!-- TODO: Mobile View 1-Column -->
-                                    <script type="text/javascript">
-                                        let screensizeForm = document.getElementById('screensizeForm');
-                                        var data = {
-                                            screensizew: window.innerWidth
-                                        }
-                                        var typeOfDevice;
-                                        if (data.screensizew < 760) {
-                                            typeOfDevice = "mobile";
-                                            screensizeForm.value = typeOfDevice;
-                                        } else {
-                                            typeOfDevice = "desktop";
-                                            screensizeForm.value = typeOfDevice;
-                                        }
-                                        //document.write(data.screensizew);
-                                        //document.write(typeOfDevice); {data.screensizew} < 767
-                                    </script>
                                     <f:if condition="{data.screensizew} < 767">
                                         <f:then>
                                             <f:if condition="{vh:newsSlider(newscount: '{news->f:count()}', newsindex: iterator.index, newsstatus: 'before')} == 1">
@@ -48,21 +61,19 @@
                                                 <div class="carousel-item">
                                                     <div class="row flexrow">
                                             </f:if>
-                                            <f:render partial="List/Item"
-                                                      arguments="{newsItem: newsItem,settings:settings,iterator:iterator}"/>
+                                            <f:render partial="List/Item" arguments="{newsItem: newsItem,settings:settings,iterator:iterator,view:'list'}" />
                                             <f:if condition="{vh:newsSlider(newscount: '{news->f:count()}', newsindex: iterator.index, newsstatus: 'after')} == 3">
+                                                    </div>
                                                 </div>
-                                            </div>
-                                             </f:if>
+                                            </f:if>
                                             <f:if condition="{vh:newsSlider(newscount: '{news->f:count()}', newsindex: iterator.index, newsstatus: 'after')} == 5">
-                                                </div>
+                                                    </div>
                                                 </div>
                                             </f:if>
                                         </f:then>
                                         <f:else>
-                                            <f:debug>{data}</f:debug>
                                             <f:if condition="{vh:newsSlider(newscount: '{news->f:count()}', newsindex: iterator.index, newsstatus: 'before')} == 1">
-                                                <div class="carousel-item active">
+                                                <div class="carousel-item">
                                                     <div class="row flexrow">
                                             </f:if>
                                             <f:if condition="{vh:newsSlider(newscount: '{news->f:count()}', newsindex: iterator.index, newsstatus: 'before')} == 2">
@@ -74,41 +85,32 @@
                                                     <div class="row flexrow">
                                             </f:if>
                                             <f:render partial="List/Item"
-                                                      arguments="{newsItem: newsItem,settings:settings,iterator:iterator}"/>
+                                                      arguments="{newsItem: newsItem,settings:settings,iterator:iterator,view:'list'}"/>
                                             <f:if condition="{vh:newsSlider(newscount: '{news->f:count()}', newsindex: iterator.index, newsstatus: 'after')} == 3">
-                                                </div>
+                                                    </div>
                                                 </div>
                                             </f:if>
                                             <f:if condition="{vh:newsSlider(newscount: '{news->f:count()}', newsindex: iterator.index, newsstatus: 'after')} == 5">
-                                                </div>
+                                                    </div>
                                                 </div>
                                             </f:if>
                                         </f:else>
                                     </f:if>
                                 </f:for>
                             </div>
-                            <f:comment><a style="background-image:url('../typo3conf/ext/pmbelayouts/Resources/Public/Images/slider-prev.png')"
-                                          class="left carousel-control" href="#carousel-" data-slide="prev"></a></f:comment>
-                            <a class="carousel-control-prev" href="#carouselNews" role="button" data-slide="prev">
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselNews" data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#carouselNews" role="button" data-slide="next">
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselNews" data-bs-slide="next">
                                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                <span class="sr-only">Next</span>
-                            </a>
-                            <ol class="carousel-indicators">
-                                <f:for each="{vh:newsSliderIndicator(newscount: '{news->f:count()}')}" as="spalte" iteration="iterator">
-                                    <li data-target="#carouselNews" data-slide-to="{spalte}"
-                                        class="{f:if(condition: '{iterator.isFirst}', then: 'active')}"></li>
-                                </f:for>
-                            </ol>
+                                <span class="visually-hidden">Next</span>
+                            </button>
                         </div>
                     </div>
                 </f:then>
                 <f:else>
-                    <f:comment>
-                    <div class="news-list-view" id="news-container-{contentObjectData.uid}">
+                    <div className="news-list-view" id="news-container-{contentObjectData.uid}">
                         <f:if condition="{settings.hidePagination}">
                             <f:then>
                                 <f:for each="{news}" as="newsItem" iteration="iterator">
@@ -117,25 +119,30 @@
                                 </f:for>
                             </f:then>
                             <f:else>
-                                <vh:widget.paginate objects="{news}" as="paginatedNews" configuration="{settings.list.paginate}"
-                                                    initial="{offset:settings.offset,limit:settings.limit,recordId:contentObjectData.uid}">
-                                    <f:for each="{paginatedNews}" as="newsItem" iteration="iterator">
-                                        <f:render partial="List/Item"
-                                                  arguments="{newsItem: newsItem,settings:settings,iterator:iterator}"/>
-                                    </f:for>
-                                </vh:widget.paginate>
+                                <f:if condition="{settings.list.paginate.insertAbove}">
+                                    <f:render partial="List/Pagination"
+                                              arguments="{pagination: pagination.pagination, paginator: pagination.paginator}"/>
+                                </f:if>
+                                <f:for each="{pagination.paginator.paginatedItems}" as="newsItem" iteration="iterator">
+                                    <f:render partial="List/Item"
+                                              arguments="{newsItem: newsItem,settings:settings,iterator:iterator}"/>
+                                </f:for>
+                                <f:if condition="{settings.list.paginate.insertBelow}">
+                                    <f:render partial="List/Pagination"
+                                              arguments="{pagination: pagination.pagination, paginator: pagination.paginator}"/>
+                                </f:if>
                             </f:else>
                         </f:if>
                     </div>
-                    </f:comment>
                 </f:else>
             </f:if>
         </f:then>
         <f:else>
-            <div class="alert ">
+            <div className="alert ">
                 <f:translate key="list_nonewsfound"/>
             </div>
         </f:else>
     </f:if>
     <!--TYPO3SEARCH_begin-->
 </f:section>
+</html>

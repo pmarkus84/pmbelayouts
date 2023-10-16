@@ -17,8 +17,12 @@
                         <f:comment><img src="{f:uri.resource(path: 'Icons/FileIcons/{file.extension}.gif', extensionName: 'frontend')}" alt=""></f:comment>
                         <a href="{file.publicUrl}" {f:if(condition:data.target,then: ' target="{data.target}"')}
                         {f:if(condition: file.title, then: ' title="{file.title}"')}>
-                        <img style="width:70px" src="fileadmin/private/images/fileicons/set1/svg/{file.extension}.svg"
-                             alt="">
+                        <!-- Kneidinger Datenpfad angepasst ../ hinzugefügt -->
+                        <f:image width="64" height="64" alt="foo" src="/fileadmin/private/images/fileicons/set1/svg/{file.extension}.svg"></f:image>
+                        <f:comment>
+                            <img style="width:70px"  src="../fileadmin/private/images/fileicons/set1/svg/{file.extension}.svg"
+                                 alt="">
+                        </f:comment>
                         </a>
                     </f:if>
                     <f:if condition="{data.uploads_type} == 2">
@@ -31,7 +35,7 @@
                             </f:then>
                             <f:else>
                                 <img style="width:70px"
-                                     src="fileadmin/private/images/fileicons/set1/svg/{file.extension}.svg" alt="">
+                                     src="/fileadmin/private/images/fileicons/set1/svg/{file.extension}.svg" alt="">
                             </f:else>
                         </f:if>
                     </f:if>

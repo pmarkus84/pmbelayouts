@@ -1,0 +1,28 @@
+<f:if condition="{user.className} == 'Pmwebdesign\Forms\Domain\Model\Superior' || {itadmin} || {deputy} > 0 || {personalabteilung}">
+    <f:comment><!-- Staffm --></f:comment>
+    <f:variable name="pageId">{s:getPageId(extensionName: 'staffm', sectionName: 'settings', constantName: 'pageIdStaffmVorg')}</f:variable>
+    <f:variable name="pageIdCreate">{s:getPageId(extensionName: 'staffm', sectionName: 'settings', constantName: 'pageIdEditMitarbeiter')}</f:variable>
+    <li class="justify-content-between align-items-start">
+        <f:link.page pageUid="{pageId}" class="dropdown-item fw-bold">
+            <i class="fa-solid fa-user-group me-1"></i><f:translate extensionName="staffm" key="tx_staffm_domain_model_mitarbeiter" /> / <f:translate extensionName="staffm" key="tx_staffm_domain_model_mitarbeiter.employeequalifications" /><f:render partial="../Ext/staffm/Partials/OverDueDatesQualificationsCount" arguments="{user:user, overdueQualificationsCount:overdueQualificationsCount, badge:'bg-danger'}" />
+        </f:link.page>
+        <f:comment><!-- Employees --></f:comment>
+        <f:link.action pageUid="{pageId}" class="dropdown-item" controller="Mitarbeiter" action="listVgs" pluginName="Staffmvorg" extensionName="staffm">
+            <f:translate extensionName="staffm" key="tx_staffm_domain_model_mitarbeiter" /><f:render partial="../Ext/staffm/Partials/OverDueDatesQualificationsCount" arguments="{user:user, overdueQualificationsCount:overdueQualificationsCount, badge:'bg-secondary'}" />
+        </f:link.action>
+        <f:if condition="{personalabteilung} || {itadmin}">
+            <f:link.action pageUid="{pageIdCreate}" class="dropdown-item" controller="Mitarbeiter" action="listAllUser" pluginName="Createuser" extensionName="staffm">
+                <f:translate extensionName="staffm" key="tx_staffm_domain_model_mitarbeiter" /> <f:translate extensionName="staffm" key="staffm.edit" />
+            </f:link.action>
+        </f:if>
+        <f:comment><!-- Qualifications --></f:comment>
+        <f:link.action pageUid="{pageId}" class="dropdown-item" controller="Qualifikation" action="listVgs" pluginName="Staffmvorg" extensionName="staffm">
+            <f:translate extensionName="staffm" key="tx_staffm_domain_model_mitarbeiter.employeequalifications" />
+        </f:link.action>
+        <f:comment><!-- Trainings --></f:comment>
+        <f:link.action pageUid="{pageId}" class="dropdown-item" controller="Training" action="list" pluginName="Staffmvorg" extensionName="staffm">
+            <f:translate extensionName="staffm" key="tx_staffm_trainings" />
+        </f:link.action>
+    </li>
+    <li><hr class="dropdown-divider"></li>
+</f:if>

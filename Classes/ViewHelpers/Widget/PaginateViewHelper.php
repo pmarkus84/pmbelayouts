@@ -8,7 +8,10 @@ namespace Pmwebdesign\Pmbelayouts\ViewHelpers\Widget;
  * For the full copyright and license information, please read the
  * LICENSE.txt file that was distributed with this source code.
  */
+
+use Pmwebdesign\Pmbelayouts\ViewHelpers\Widget\Controller\PaginateController;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
+use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 /**
  * This ViewHelper renders a Pagination of objects.
@@ -23,20 +26,20 @@ use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
  * </code>
  *
  */
-class PaginateViewHelper extends \TYPO3\CMS\Fluid\Core\Widget\AbstractWidgetViewHelper
+class PaginateViewHelper extends AbstractViewHelper
 {
 
     /**
-     * @var \Pmwebdesign\Pmbelayouts\ViewHelpers\Widget\Controller\PaginateController
+     * @var PaginateController
      */
     protected $controller;
 
     /**
      * Inject controller
      *
-     * @param \Pmwebdesign\Pmbelayouts\ViewHelpers\Widget\Controller\PaginateController $controller
+     * @param PaginateController $controller
      */
-    public function injectController(\Pmwebdesign\Pmbelayouts\ViewHelpers\Widget\Controller\PaginateController $controller)
+    public function injectController(PaginateController $controller)
     {
         $this->controller = $controller;
     }

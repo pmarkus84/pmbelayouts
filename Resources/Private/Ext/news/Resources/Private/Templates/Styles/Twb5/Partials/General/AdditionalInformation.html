@@ -1,0 +1,44 @@
+<html data-namespace-typo3-fluid="true" xmlns:core="TYPO3\CMS\Core\ViewHelpers"
+      xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+
+<div class="extra mb-3">
+    <f:comment>Author</f:comment>
+    <f:if condition="{newsItem.author}">
+        <f:comment><!-- Z_PARAT: partial --></f:comment>
+        <f:render partial="PARAT/Image/ProfileImage" arguments="{email:newsItem.authorEmail}" />
+        <f:translate arguments="{0:newsItem.author}" key="author"/>
+        |
+    </f:if>
+
+    <f:comment>Date</f:comment>
+    <i class="fas fa-calendar-alt me-1"> </i>
+    <time datetime="{f:format.date(date:newsItem.datetime, format:'Y-m-d')}" itemprop="datePublished">
+        <f:format.date format="{f:translate(key:'dateFormat')}">{newsItem.datetime}</f:format.date>
+    </time>
+
+    <f:comment>Category</f:comment>
+    <f:if condition="{newsItem.firstCategory}">
+        <f:comment><!-- Z_PARAT: Add link to category if single view and page not IAM-Parat --></f:comment>
+            |
+        <f:if condition="{view} != 'list' && {settings.backPid} != '47'}">
+            <f:then>
+                <f:link.typolink parameter="{newsItem.firstCategory.shortcut}" target="" title="{f:translate(key: 'pmbelayouts.toPage', extensionName: 'pmbelayouts')} {newsItem.firstCategory.title}">
+                    <i class="fas fa-folder-open me-1"></i> <span class="label label-info">{newsItem.firstCategory.title}</span>
+                </f:link.typolink>
+            </f:then>
+            <f:else>
+                <i class="fas fa-folder-open me-1"></i> <span class="label label-info">{newsItem.firstCategory.title}</span>
+            </f:else>
+        </f:if>
+    </f:if>
+
+    <f:comment>Tags</f:comment>
+    <f:if condition="{newsItem.tags}">
+        | <i class="fas fa-tags me-1"></i> <span class="news-list-tags me-1" itemprop="keywords">
+            <f:for as="tag" each="{newsItem.tags}">
+                <span class="label label-info me-1">{tag.title}</span>
+            </f:for>
+	    </span>
+    </f:if>
+</div>
+</html>

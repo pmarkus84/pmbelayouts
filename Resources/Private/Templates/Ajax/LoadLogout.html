@@ -1,45 +1,87 @@
 {namespace h = Pmwebdesign\Pmbelayouts\ViewHelpers}
 {namespace s = Pmwebdesign\Staffm\ViewHelpers}
+{namespace form = Pmwebdesign\Forms\ViewHelpers}
+{namespace adjustment = BmParat\Adjustmentsheet\ViewHelpers}
 
 <f:variable name="user"><h:getUser></h:getUser></f:variable>
-<form class="form-inline" action="/" enctype="multipart/form-data" method="post">
+<f:variable name="itadmin" value="{s:isAdmin()}" />
+<f:variable name="personalabteilung" value="{form:IsPersonnelManagement()}"></f:variable>
+<form class="form-inline" id="log-form" action="/" enctype="multipart/form-data" method="post">
     <div class="input-group">
-        <f:if condition="{settings.extFormsActive} == 1">
-            <f:link.page title="{f:translate(extensionName: 'forms', key: 'tx_forms_forms')}" id="taskCounter" class="btn btn-outline-secondary btn" pageUid="{s:getPageId(extensionName: 'forms_formlist', sectionName: 'settings', constantName: 'pageIdForms')}">
-                <i class="fas fa-list me-1"></i><f:render partial="../Ext/forms/Partials/FormsCount" arguments="{_all}" />
-            </f:link.page>
-        </f:if>
-        <div {f:if(condition:'{user.image}',then: 'style=\'padding:0\'')} class="btn btn-outline-secondary nonehover" title="{user.firstName} {user.lastName}">
-            <f:if condition="{user.image}">
+        <f:if condition="{settings.extStaffmActive} == 1">
+            <f:variable name="overdueQualificationsCount">{s:countOverdueQualificationsFromEmployee(superior: '{user}')}</f:variable>
+            <f:variable name="absenceNumber" value="{form:countForms(antrag: 'AbsenceformOffen')}" />
+            <f:variable name="changeNumber" value="{form:countForms(antrag: 'ChangeformOffen')}" />
+            <f:variable name="homeOfficeNumber" value="{form:countForms(antrag: 'HomeOfficeOffen')}" />
+            <f:variable name="countOpenAdjustmentSheets">{adjustment:countOpen()}</f:variable>
+            <f:variable name="allFormNumber" value="{absenceNumber + changeNumber + homeOfficeNumber}" />
+            <f:variable name="deputy" value="{s:isCostCenterResponsible(employee: user, withDeputy: 1)}"/>
+            <f:if condition="{overdueQualificationsCount}">
                 <f:then>
-                    <f:image height="38px" src="{user.image.0.originalResource.publicUrl}" />
+                    <f:variable name="allCount" value="{allFormNumber + countOpenAdjustmentSheets + overdueQualificationsCount}" />
                 </f:then>
                 <f:else>
-                    <i class="fas fa-user me-1"></i>
+                    <f:variable name="allCount" value="{allFormNumber + countOpenAdjustmentSheets}" />
                 </f:else>
             </f:if>
-        </div>
-        <input type="hidden" name="logintype" value="logout" >
-        <input type="hidden" name="pid" value="{$pid_feuser}">
-        <input type="hidden" name="tx_felogin_pi1[noredirect]" value="0">
-        <div class="dropdown btn-group pmbelayouts-forms-dropdown">
-            <input name="submit" value="Logout" type="submit" id="logout-btn" class="btn btn-outline-secondary btn"><span class="visually-hidden">Toggle Dropdown</span>
-            <f:comment><!-- Dropdown Employee --></f:comment>
-            <button type="button" id="btnGroupDrop2" class="btn btn-outline-secondary btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"></button>
-            <ul class="dropdown-menu dropdown {dropdownAnimate}" aria-labelledby="btnGroupDrop2">
-                <f:comment><!-- Extension Staffm active? --></f:comment>
-                <f:if condition="{settings.extStaffmActive} == 1">
-                    <f:alias map="{loggedIn: '{s:finduser()}'}">
-                        <f:render partial="../Ext/staffm/Partials/Profile" arguments="{_all}" />
+            <div class="btn-group">
+                <f:if condition="{settings.extFormsActive} == 1">
+                    <f:link.page title="{f:translate(extensionName: 'forms', key: 'tx_forms_forms')}" id="taskCounter" class="btn btn-outline-secondary dropdown-toggle" additionalAttributes="{data-bs-toggle:'dropdown',aria-expanded:'false',role:'button'}" pageUid="{s:getPageId(extensionName: 'forms_formlist', sectionName: 'settings', constantName: 'pageIdForms')}">
+                        <i class="fas fa-list me-1"></i><f:render partial="../Ext/forms/Partials/FormsCount" arguments="{antrag:'all', counter:allCount, badge:'bg-danger'}" />
+                    </f:link.page>
+                </f:if>
+                <ul class="dropdown-menu{dropdownAnimate}">
+                    <f:render partial="../Ext/staffm/Partials/Staffm" arguments="{_all}" />
+                    <f:if condition="{settings.extFormsActive} == 1">
                         <f:comment><!-- Extension Forms active? --></f:comment>
                         <f:if condition="{settings.extFormsActive} == 1">
                             <f:render partial="../Ext/forms/Partials/Forms" arguments="{_all}" />
                         </f:if>
-                    </f:alias>
+                        <f:comment><!-- TODO: Extension Shift shedule active? --></f:comment>
+                        <f:if condition="{settings.extShiftSheduleActive} == 1">
+                            <f:render partial="../Ext/shiftShedule/Partials/shiftShedule" arguments="{_all}" />
+                        </f:if>
+                        <f:comment><!-- Extension Adjustmentsheet active? --></f:comment>
+                        <f:if condition="{settings.extadjustmentsheetActive} == 1">
+                            <f:render partial="Ext/adjustmentsheet/adjustmentsheet" arguments="{_all}" />
+                        </f:if>
+                        <f:comment><!-- Extension DocumentenControlling active? --></f:comment>
+                        <f:if condition="{settings.extdocumentControllingActive} == 1">
+                            <f:render partial="Ext/documentcontrolling/documentcontrolling" arguments="{_all}" />
+                        </f:if>
+                    </f:if>
+                </ul>
+            </div>
+        </f:if>
+        <f:comment><!-- User Image? --></f:comment>
+        <div style="{f:if(condition:'{user.image}',then:'padding:0')}" class="btn btn-outline-secondary nonehover" title="{user.firstName} {user.lastName}">
+            <f:if condition="{user.image}">
+                <f:then>
+                    <f:comment><!-- Image of user --></f:comment>
+                    <f:image height="38px" style="{f:if(condition:'{settings.extFormsActive} != 1',then: 'border-radius:5px 0 0')}" src="{user.image.0.originalResource.publicUrl}" />
+                </f:then>
+                <f:else>
+                    <f:comment><!-- Icon for user --></f:comment>
+                    <i class="fas fa-user me-1"></i>
+                </f:else>
+            </f:if>
+        </div>
+        <f:comment><!-- Employee buttons --></f:comment>
+        <div class="dropdown btn-group pmbelayouts-forms-dropdown">
+            <input name="submit" value="Logout" type="submit" id="logout-btn" class="btn btn-outline-secondary"><span class="visually-hidden">Toggle Dropdown</span>
+            <button type="button" id="btnGroupDrop2" class="btn btn-outline-secondary btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"></button>
+            <ul class="dropdown-menu dropdown-menu-lg-end{dropdownAnimate}" aria-labelledby="btnGroupDrop2">
+                <f:comment><!-- Extension Staffm active? --></f:comment>
+                <f:if condition="{settings.extStaffmActive} == 1">
+                    <f:render partial="../Ext/staffm/Partials/Profile" arguments="{_all}" />
                 </f:if>
                 <li><hr class="dropdown-divider"></li>
-                <li id="fullusername" class="dropdown-item">{user.firstName} {user.lastName}</li>
+                <li id="fullusername" class="dropdown-item disabled">{user.firstName} {user.lastName}</li>
             </ul>
         </div>
     </div>
+    <f:comment><!-- Login/Logout fields --></f:comment>
+    <input type="hidden" name="logintype" value="logout" >
+    <input type="hidden" name="pid" value="{$pid_feuser}">
+    <input type="hidden" name="tx_felogin_pi1[noredirect]" value="0">
 </form>

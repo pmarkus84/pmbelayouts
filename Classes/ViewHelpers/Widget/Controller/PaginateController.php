@@ -2,6 +2,8 @@
 
 namespace Pmwebdesign\Pmbelayouts\ViewHelpers\Widget\Controller;
 
+use TYPO3\CMS\Extensionmanager\Controller\AbstractController;
+
 /**
  * This file is part of the "news" Extension for TYPO3 CMS.
  *
@@ -14,7 +16,7 @@ namespace Pmwebdesign\Pmbelayouts\ViewHelpers\Widget\Controller;
  * Extended version from fluid core
  *
  */
-class PaginateController extends \TYPO3\CMS\Fluid\Core\Widget\AbstractWidgetController
+class PaginateController extends AbstractController
 {
 
     /**

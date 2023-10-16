@@ -1,0 +1,11 @@
+{namespace pm=Pmwebdesign\Pmbelayouts\ViewHelpers}
+
+<f:variable name="image">{pm:getProfileImageFromEmployee(email:'{email}')}</f:variable>
+<f:if condition="{image}">
+  <f:then>
+    <f:image image="{image}" height="40" maxWidth="100" additionalAttributes="{style='border:1px solid white'}" />
+  </f:then>
+  <f:else>
+    <i class="fas fa-user me-1"></i>
+  </f:else>
+</f:if>

@@ -1,0 +1,15 @@
+{namespace shift = Parat\ShiftShedule\ViewHelpers}
+<f:alias map="{admin: '{shift:isAdministrator()}'}">
+    <f:alias map="{authUser: '{shift:isAuthUser()}'}">
+        <f:if condition="{authUser} === 0 or {authUser} === 1 or {authUser} === 2 or {admin} or {itadmin}">
+            <f:then>
+                <li><hr class="dropdown-divider"></li>
+                <li class="justify-content-between align-items-start">
+                    <f:link.page pageUid="{s:getPageId(extensionName: 'staffm', sectionName: 'settings', constantName: 'pageIdShiftShedule')}" class="dropdown-item fw-bold">
+                        <i class="fa-solid fa-calendar-week"></i> <f:translate extensionName="shiftShedule" key="tx_shiftshedule_domain_model_shiftshedule"/>
+                    </f:link.page>
+                </li>
+            </f:then>
+        </f:if>
+    </f:alias>
+</f:alias>

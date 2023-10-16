@@ -58,6 +58,7 @@ class NewsSliderIndicatorViewHelper extends AbstractViewHelper
             \Closure $renderChildrenClosure,
             RenderingContextInterface $renderingContext)
     {
+        $newscount = $arguments['newscount'];
         if($newscount == 1) {
             $spalten = 1;
         } elseif ($newscount == 2) {

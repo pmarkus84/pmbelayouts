@@ -10,9 +10,9 @@ use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 class GetUserViewHelper extends AbstractViewHelper
 {
     /**
-     * @return FrontendUser
+     * @return FrontendUser|null
      */
-    public function render() : FrontendUser
+    public function render() : ?FrontendUser
     {
         $frontendUserRepository = GeneralUtility::makeInstance(FrontendUserRepository::class);
         return $frontendUserRepository->findByUid($GLOBALS['TSFE']->fe_user->user['uid']);

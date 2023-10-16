@@ -6,79 +6,78 @@
 		Partials/List/Item.html
 -->
 <n:excludeDisplayedNews newsItem="{newsItem}" />
-<f:if condition="{settings.templateLayout} == 1">
+
+<f:if condition="{settings.templateLayout} == 100">
     <f:then>
         <div class="flexcol col-lg-4 col-xs-12">
-            <div class="newitemslider">
-                <h5 class="newsitemheader mt-3" itemprop="headline">
-                        <n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">
-                                {newsItem.title}
-                        </n:link>
-                </h5>
+            <n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">
+                <div class="newitemslider{f:if(condition: '{newsItem.mediaPreviews}', then: ' shadow-corporate', else: ' shadow-corporate')}" style="background-image:url({f:if(condition: '{newsItem.mediaPreviews}', then: '\'/fileadmin{newsItem.mediaPreviews.0.originalResource.originalFile.identifier}\'', else: '\'/fileadmin/design/2307_parat-hintergrund-overlauf.jpg\'')})">
+                    <div class="newsitemtext">
+                        <h4 class="newsitemheader mt-3" itemprop="headline">{newsItem.title}</h4>
+                        <f:render partial="General/AdditionalInformation" arguments="{settings:settings,newsItem:newsItem,view:view}" />
+
+                        <!-- teaser -->
+                        <div class="lead" itemprop="description">
+                            <n:removeMediaTags>
+                                    <f:if condition="{newsItem.teaser}">
+                                            <f:then>
+                                                    {newsItem.teaser -> f:format.crop(maxCharacters: '{settings.cropMaxCharacters}', respectWordBoundaries:'1') -> f:format.html()}
+                                            </f:then>
+                                            <f:else>
+                                                    {newsItem.bodytext -> f:format.crop(maxCharacters: '{settings.cropMaxCharacters}', respectWordBoundaries:'1') -> f:format.html()}
+                                            </f:else>
+                                    </f:if>
+                            </n:removeMediaTags>
+                        </div>
+                    </div>
+                </div>
+            </n:link>
+        </div>
+    </f:then>
+    <f:else>
+        <div class="row news-list-item">
+            <div class="col-md-3">
+                <n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">
+                    <f:if condition="{newsItem.mediaPreviews}">
+                        <f:then>
+                            <f:media class="img-responsive img-rounded-tr" file="{newsItem.mediaPreviews.0}" title="{newsItem.mediaPreviews.0.originalResource.title}" alt="{newsItem.mediaPreviews.0.originalResource.alternative}" loading="{settings.list.media.image.lazyLoading}"  width="{f:if(condition: settings.media.maxWidth, then: settings.media.maxWidth, else: settings.list.media.image.width)}" height="{f:if(condition: settings.media.maxHeight, then: settings.media.maxHeight, else:'')}" />
+                        </f:then>
+                        <f:else>
+                            <f:if condition="{settings.displayDummyIfNoMedia}">
+                                <f:image class="img-dummy img-responsive" src="{settings.list.media.dummyImage}" title="" alt="" loading="{settings.list.media.image.lazyLoading}"  maxWidth="{settings.list.media.image.maxWidth}" maxHeight="{settings.list.media.image.maxHeight}" />
+                            </f:if>
+                        </f:else>
+                    </f:if>
+                </n:link>
+            </div>
+
+            <div class="col-md-9 articletype-{newsItem.type}{f:if(condition: newsItem.istopnews, then: ' topnews')}" itemscope="itemscope" itemtype="http://schema.org/Article">
+                <h3 itemprop="headline">
+                    <n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}" additionalAttributes="{itemprop:'url', class:'newsitemheader'}">
+                        {newsItem.title}
+                    </n:link>
+                </h3>
 
                 <f:render partial="General/AdditionalInformation" arguments="{settings:settings,newsItem:newsItem}" />
 
                 <!-- teaser -->
                 <div class="lead" itemprop="description">
-                        <n:removeMediaTags>
-                                <f:if condition="{newsItem.teaser}">
-                                        <f:then>
-                                                {newsItem.teaser -> f:format.crop(maxCharacters: '{settings.cropMaxCharacters}', respectWordBoundaries:'1') -> f:format.html()}
-                                        </f:then>
-                                        <f:else>
-                                                {newsItem.bodytext -> f:format.crop(maxCharacters: '{settings.cropMaxCharacters}', respectWordBoundaries:'1') -> f:format.html()}
-                                        </f:else>
-                                </f:if>
-                        </n:removeMediaTags>
+                    <n:removeMediaTags>
+                        <f:if condition="{newsItem.teaser}">
+                            <f:then>
+                                {newsItem.teaser -> f:format.crop(maxCharacters: '{settings.cropMaxCharacters}', respectWordBoundaries:'1') -> f:format.html()}
+                            </f:then>
+                            <f:else>
+                                {newsItem.bodytext -> f:format.crop(maxCharacters: '{settings.cropMaxCharacters}', respectWordBoundaries:'1') -> f:format.html()}
+                            </f:else>
+                        </f:if>
+                    </n:removeMediaTags>
                 </div>
-                <n:link newsItem="{newsItem}" settings="{settings}" class="btn-read-more" title="{newsItem.title}">
+
+                <n:link newsItem="{newsItem}" settings="{settings}" class="btn btn-primary" title="{newsItem.title}">
                     <f:translate key="more-link" />
                 </n:link>
             </div>
-        </div>
-    </f:then>
-    <f:else>
-        <div class="row news-list-item">            
-                <div class="col-md-3">
-                        <n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">
-                                <f:if condition="{newsItem.mediaPreviews}">
-                                        <f:then>
-                                                <f:media class="img-responsive" file="{newsItem.mediaPreviews.0}" title="{mediaElement.originalResource.title}" alt="{mediaElement.originalResource.alternative}" width="{f:if(condition: settings.media.maxWidth, then: settings.media.maxWidth, else: settings.list.media.image.width)}" height="{f:if(condition: settings.media.maxHeight, then: settings.media.maxHeight, else:'')}" />
-                                        </f:then>
-                                        <f:else>
-                                                <f:if condition="{settings.displayDummyIfNoMedia}">
-                                                        <f:image class="img-dummy img-responsive" src="{settings.list.media.dummyImage}" title="" alt="" maxWidth="{settings.list.media.image.maxWidth}" maxHeight="{settings.list.media.image.maxHeight}" />
-                                                </f:if>
-                                        </f:else>
-                                </f:if>
-                        </n:link>
-                </div>               
-                <div class="col-md-{f:if(condition:'{settings.templateLayout} == 1', then: '4', else: '9')} articletype-{newsItem.type}{f:if(condition: newsItem.istopnews, then: ' topnews')}" itemscope="itemscope" itemtype="http://schema.org/Article">
-                        <h3 itemprop="headline">
-                                <n:link newsItem="{newsItem}" settings="{settings}" title="{newsItem.title}">
-                                        {newsItem.title}
-                                </n:link>
-                        </h3>
-
-                        <f:render partial="General/AdditionalInformation" arguments="{settings:settings,newsItem:newsItem}" />
-
-                        <!-- teaser -->
-                        <div class="lead" itemprop="description">
-                                <n:removeMediaTags>
-                                        <f:if condition="{newsItem.teaser}">
-                                                <f:then>
-                                                        {newsItem.teaser -> f:format.crop(maxCharacters: '{settings.cropMaxCharacters}', respectWordBoundaries:'1') -> f:format.html()}
-                                                </f:then>
-                                                <f:else>
-                                                        {newsItem.bodytext -> f:format.crop(maxCharacters: '{settings.cropMaxCharacters}', respectWordBoundaries:'1') -> f:format.html()}
-                                                </f:else>
-                                        </f:if>
-                                </n:removeMediaTags>
-                        </div>
-                        <n:link newsItem="{newsItem}" settings="{settings}" class="btn-read-more" title="{newsItem.title}">
-                            <f:translate key="more-link" />
-                        </n:link>
-                </div>
         </div>
     </f:else>
 </f:if>

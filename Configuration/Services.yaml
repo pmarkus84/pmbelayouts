@@ -1,0 +1,9 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Pmwebdesign\Pmbelayouts\:
+    resource: '../Classes/*'
+    exclude: '../Classes/Domain/Model/*'

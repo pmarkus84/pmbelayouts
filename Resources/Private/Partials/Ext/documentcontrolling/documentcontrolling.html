@@ -1,0 +1,15 @@
+{namespace documentControlling = Parat\DocumentControlling\ViewHelpers}
+<f:alias map="{admin: '{documentControlling:isAdministrator()}'}">
+    <f:alias map="{authUser: '{documentControlling:isAuthUser()}'}">
+        <f:if condition="{authUser} or {admin} or {itadmin}">
+            <f:then>
+                <li><hr class="dropdown-divider"></li>
+                <li class="justify-content-between align-items-start">
+                    <f:link.page pageUid="{s:getPageId(extensionName: 'staffm', sectionName: 'settings', constantName: 'pageIdDocumentControlling')}" class="dropdown-item fw-bold">
+                        <i class="fa-solid fa-file-signature"></i> <f:translate extensionName="DocumentControlling" key="tx_documentcontrolling_domain_model_customerspecification.workflow_uberschrift" />
+                    </f:link.page>
+                </li>
+            </f:then>
+        </f:if>
+    </f:alias>
+</f:alias>

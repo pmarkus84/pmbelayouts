@@ -1,9 +1,7 @@
-{namespace form = Pmwebdesign\Forms\ViewHelpers}
 
-<f:variable name="absenceNumber" value="{form:countForms(antrag: 'AbsenceformOffen')}" />
-<f:variable name="changeNumber" value="{form:countForms(antrag: 'ChangeformOffen')}" />
-<f:variable name="allFormNumber" value="{v:math.sum(a: '{absenceNumber}', b: '{changeNumber}')}" />
 
-<f:if condition="{allFormNumber} > 0">
-    <span class="badge bg-danger text-light">{allFormNumber}</span>
+<f:comment><!-- {v:math.sum(a: '{absenceNumber}', b: '{changeNumber}')} --></f:comment>
+
+<f:if condition="{counter} > 0">
+    <span class="badge {badge} text-light">{counter}</span>
 </f:if>

@@ -24,26 +24,32 @@ plugin.tx_t3sbootstrap {
 ## tx_news
 plugin.tx_news {    
     # tx_news: Hide Dummy-Picture
-    #settings.displayDummyIfNoMedia = 0
+    settings.displayDummyIfNoMedia = 0
     # tx_news: Back-Button
-    #enableConfigValidation = 0
-    #dontUseBackPid = 0
+    enableConfigValidation = 0
+    dontUseBackPid = 0
     # Set a new partial for categories to make a link to a category
     # Removed for Typo3 11 - dvpm 2023-02-22
-#    view {
-#        partialRootPaths {
-#            100 = {$resDir}/Private/ext/news/Resources/Private/Templates/Styles/Twb/Partials/
+    view {
+#        layoutRootPaths {
+#            105 = {$resDir}/Private/ext/t3sbootstrap/Extensions/news/Resources/Private/Layouts/
 #        }
-#        templateRootPaths {
-#            100 = {$resDir}/Private/ext/news/Resources/Private/Templates/Styles/Twb/Templates/
-#        }
-#    }
+        templateRootPaths {
+            100 = {$resDir}/Private/ext/news/Resources/Private/Templates/Styles/Twb/Templates/
+            105 = {$resDir}/Private/ext/t3sbootstrap/Extensions/news/Resources/Private/Templates/
+            110 = {$resDir}/Private/ext/news/Resources/Private/Templates/Styles/Twb5/Templates/
+        }
+        partialRootPaths {
+            100 = {$resDir}/Private/ext/news/Resources/Private/Templates/Styles/Twb/Partials/
+            110 = {$resDir}/Private/ext/news/Resources/Private/Templates/Styles/Twb5/Partials/
+        }
+    }
 
-    ## Set this to PageTS, then you can select various Layouts
-    #tx_news.templateLayouts {
-    #    1 = A custom layout
-    #    99 = LLL:fileadmin/somelocallang/locallang.xlf:someTranslation
-    #}
+    # Set this to PageTS, then you can select various Layouts
+#    tx_news.templateLayouts {
+#        1 = A custom layout
+#        99 = LLL:fileadmin/somelocallang/locallang.xlf:someTranslation
+#    }
 }
 
 ## newsslider
@@ -56,17 +62,17 @@ plugin.tx_newsslider.view {
     }
 }
 
-## Fluid Content for Headers and (file extensions)
-#lib.contentElement {
-#    partialRootPaths {
-#        100 = {$resDir}/Private/ext/fluid_styled_content/Resources/Private/Partials/
-#        #99 = fileadmin/private/partials
-#    }
-#    templateRootPaths {
-#        100 = {$resDir}/Private/ext/fluid_styled_content/Resources/Private/Templates/
-#        #99 = fileadmin/private/partials
-#    }
-#}
+# Fluid Content for Headers and (file extensions)
+lib.contentElement {
+    partialRootPaths {
+        100 = {$resDir}/Private/ext/fluid_styled_content/Resources/Private/Partials/
+        #99 = fileadmin/private/partials
+    }
+    templateRootPaths {
+        100 = {$resDir}/Private/ext/fluid_styled_content/Resources/Private/Templates/
+        #99 = fileadmin/private/partials
+    }
+}
 
 # Anchor links
     # Removed for Typo3 10 - dvpm 2023-02-22
@@ -110,8 +116,8 @@ plugin.tx_newsslider.view {
 page = PAGE
 page {
 #        theme.metasection.enable = 0
-#        typeNum = 0
-        config {
+    typeNum = 0
+    config {
             #disableAllHeaderCode = 1
             #noPageTitle = 1
 #            ## Typo3 Errormessages (0=on, 1=off)
@@ -153,7 +159,7 @@ page {
 #
 #            ## TODO: rlmplanguagedetection
 #            #987 =< plugin.tx_rlmplanguagedetection_pi1
-        }
+    }
 #
 #        #headerData {
 #        #        10 = TEXT
@@ -167,7 +173,7 @@ page {
 }
 
 ## Favicon
-page.shortcutIcon = {$resDir}/Public/Icons/parat_favicon_512-32x32.png
+page.shortcutIcon = {$resDir}/Public/Icons/favicon180x180.png
 
 ## Load CSS Files
 page.includeCSS {
@@ -198,7 +204,7 @@ page.includeJSFooterlibs {
 }
 
 page.includeJSFooter {
-    siteFunctions = {$resDir}/Public/JavaScript/siteFunctions.js
+#    siteFunctions = {$resDir}/Public/JavaScript/siteFunctions.js
     #main = {$resDir}/Public/JavaScript/main.js
     #myfunctions = {$resDir}/Public/JavaScript/myfunctions.js
 }
@@ -206,71 +212,73 @@ page.includeJSFooter {
 #page.10 = FLUIDTEMPLATE
 #page.10 {
 #    # Removed for Typo3 10 - dvpm 2023-02-22
-##    partialRootPaths {
-##        30 = {$resDir}/Private/Partials
-##    }
-##    layoutRootPaths {
-##        30 = {$resDir}/Private/Layouts
-##    }
-#    #file = {$resDir}/Private/Templates/DefaultTemplate.html
-#
-#    ## Backend Layouts
-#    # Removed for Typo3 10 - dvpm 2023-02-22
-##    file.stdWrap.cObject = CASE
-##    file.stdWrap.cObject {
-##        key.data = levelfield:-1, backend_layout_next_level, slide
-##        key.override.field = backend_layout
-##
-##        # Default Template
-##        default = TEXT
-##        default.value = {$resDir}/Private/Templates/DefaultTemplate.html
-##
-##        # If BE-Layout is saved in PageTS then "pagets__" must be prefixed to ID. If BE-Layout is saved in DB, then nothing is prefixed to ID.
-##        # Two columns with Teaser Template
-##        pagets__2 < .default
-##
-##        # TV Template
-##        pagets__3 = TEXT
-##        pagets__3.value = {$resDir}/Private/Templates/TvTemplate.html
-##    }
-#
-#    variables {
-#        languagesetd = {$languagesetd}
-#        languagesete = {$languagesete}
-#        baseUrltext = TEXT
-#        baseUrltext.value = {$baseUrl}
-#        baseUrl < lib.absRefPrefix
-#        # Removed for Typo3 11 - dvpm 2023-02-22
-##        teaserBereich < styles.content.get
-##        teaserBereich.select.where = colPos=3
-##        headliner < styles.content.get
-##        headliner.select.where = colPos=4
-##        inhalt < styles.content.get
-##        inhalt.select.where = colPos=0
-##        sidebar < styles.content.get
-##        sidebar.select.where = colPos=2
-##        footer < styles.content.get
-##        footer.select.where = colPos=1
-#        languageid = TEXT
-##        inhalt < styles.content.get
-##        sidebar < styles.content.get
-##        sidebar.select.where = colPos = 1
-##        sidebar.stdWrap {
-##            wrap = <aside>|</aside>
-##            required = 1
-##        }
+#    partialRootPaths {
+#        30 = {$resDir}/Private/Partials
 #    }
+#    layoutRootPaths {
+#        30 = {$resDir}/Private/Layouts
+#    }
+#    file = {$resDir}/Private/Templates/DefaultTemplate.html
+#
+#    # Backend Layouts
+#     Removed for Typo3 10 - dvpm 2023-02-22
+#    file.stdWrap.cObject = CASE
+#    file.stdWrap.cObject {
+#        key.data = levelfield:-1, backend_layout_next_level, slide
+#        key.override.field = backend_layout
+#
+#        # Default Template
+#        default = TEXT
+#        default.value = {$resDir}/Private/Templates/DefaultTemplate.html
+#
+#        # If BE-Layout is saved in PageTS then "pagets__" must be prefixed to ID. If BE-Layout is saved in DB, then nothing is prefixed to ID.
+#        # Two columns with Teaser Template
+#        pagets__2 < .default
+#
+#        # TV Template
+#        pagets__3 = TEXT
+#        pagets__3.value = {$resDir}/Private/Templates/TvTemplate.html
+#    }
+
+#variables {
+#    languagesetd = {$languagesetd}
+#    languagesete = {$languagesete}
+#    baseUrltext = TEXT
+#    baseUrltext.value = {$baseUrl}
+#    baseUrl < lib.absRefPrefix
+#    teaserBereich < styles.content.get
+#    teaserBereich.select.where = colPos=3
+#    headliner < styles.content.get
+#    headliner.select.where = colPos=4
+#    inhalt < styles.content.get
+#    inhalt.select.where = colPos=0
+#    sidebar < styles.content.get
+#    sidebar.select.where = colPos=2
+#    footer < styles.content.get
+#    footer.select.where = colPos=1
+#    languageid = TEXT
 #}
 
-loginPage = PAGE
-loginPage  {
-    typeNum = 528456
-    10 < tt_content.list.20.pmbelayouts_pmbelayouts
+#
+#
+#}
 
-    config {
-        disableAllHeaderCode = 1
-        xhtml_cleaning = 0
-        admPanel = 0
-        additionalHeaders = Content-type:application/octet-stream
-    }
+page {
+        config.linkVars = L
+        config.sys_language_overlay = hideNonTranslated
+
+        # Standardsprache UID 0 -> Deutsch
+        config.sys_language_uid = 0
+        config.language = de
+        config.locale_all = de_DE.UTF8
+
+        # Englisch, sys_language.uid = 1
+    [globalVar = GP:L = 2]
+        config.sys_language_uid = 2
+        config.language = en
+        config.locale_all = en_EN
+    [global]
+
+    config.sys_language_mode = strict
+    #config.sys_language_overlay = 1
 }

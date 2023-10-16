@@ -10,13 +10,9 @@ Contributors:
 */
 /* 
     Created on : 13.09.2017, 16:44:31
-    Author     : Markus Puffer <m.puffer@pm-webdesign.eu>
+    Author     : Markus Puffer
 */
 /** Links */
-.news a {
-  color: #000000;
-}
-
 .news a:hover {
   text-decoration: none;
   color: #70EFD6;
@@ -81,17 +77,10 @@ a.more:hover, .news-backlink-wrap a:hover {
 /** News with Bootstrap */
 /* Container */
 .news-list-item {
-  box-shadow: 5px 5px 5px #cccccc, -1px -1px 5px #cccccc;
   padding: 15px 5px;
   margin-bottom: 20px;
   max-width: 100%;
   margin-left: 0;
-}
-
-.news-list-item .col-md-3 {
-  width: 100%;
-  padding-left: 5px;
-  padding-right: 5px;
 }
 
 .news-list-item img, .news-single img {
@@ -110,16 +99,10 @@ a.more:hover, .news-backlink-wrap a:hover {
 
 /** Categories */
 .label-info {
-  /*    background-color: #666666;*/
-  /*    color: #ffffff;*/
-  /*    padding: 3px;
-      border-radius: 3px;*/
-  color: #666666;
   margin-right: 5px;
 }
 
 .label-info:hover {
-  /*    background-color: #70EFD6;    */
   color: #70EFD6;
 }
 
@@ -129,7 +112,7 @@ a.more:hover, .news-backlink-wrap a:hover {
 
 /* Slider Template */
 .flexcontainer {
-  background-color: #cccccc;
+  background-color: #000000;
   padding: 40px;
 }
 
@@ -142,9 +125,7 @@ a.more:hover, .news-backlink-wrap a:hover {
 }
 
 #carouselNews .flexcol {
-  /*   box-shadow: 0px 1px;
-     padding-bottom: 10px;*/
-  margin-bottom: 10px;
+  padding: 20px;
 }
 
 #carouselNews .carousel-control-prev {
@@ -169,16 +150,42 @@ a.more:hover, .news-backlink-wrap a:hover {
 }
 
 .newitemslider {
-  /*    box-shadow: 5px -5px 5px 1px #666666;*/
   background-color: #ffffff;
   height: 100%;
-  padding: 10px;
-  padding-bottom: 30px;
+  min-height: 350px;
   text-align: center;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 0 30px 0 0;
+}
+
+.newsslider-img {
+  margin-bottom: 10px;
+}
+
+.newsitemtext {
+  position: inherit;
+  bottom: 10px;
+  padding: 20px;
+  text-align: left;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 0 30px 0 0;
+}
+
+.newsitemtext a {
+  color: white !important;
 }
 
 #carouselNews .newsitemheader {
   margin: 0;
+  padding-left: 10px;
+}
+
+.newsitemheader {
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 #carouselNews .newsitemheader a:hover {
@@ -187,31 +194,16 @@ a.more:hover, .news-backlink-wrap a:hover {
 
 #carouselNews .extra {
   padding: 10px;
-  /*    margin-bottom: 1px;    */
-  background-color: #ffffff;
-  /*    border-right: 1px solid #666;
-      border-left: 1px solid #666;*/
+  color: white;
 }
 
 #carouselNews .lead {
   font-size: 1rem;
   padding: 10px;
   margin: 0;
-  background-color: #ffffff;
+  color: white;
   /*    border-right: 1px solid #666;
       border-left: 1px solid #666;*/
-}
-
-.btn-read-more {
-  border: none;
-  border-radius: 0;
-  padding: 15px 0;
-  text-decoration: underline;
-  -moz-text-decoration-color: #70EFD6;
-  -o-text-decoration-color: #70EFD6;
-  -webkit-text-decoration-color: #70EFD6;
-  -ms-text-decoration-color: #70EFD6;
-  text-decoration-color: #70EFD6;
 }
 
 #carouselNews .btn-read-more {
@@ -243,24 +235,20 @@ a.more:hover, .news-backlink-wrap a:hover {
 
 .page-item.active .page-link {
   background-color: #0040D1;
-  border-color: #0040D1;
+  border-color: white;
 }
 
 /* Indicators */
 .carousel-indicators .active {
-  background-color: rgba(0, 0, 0, 0.9);
-}
-
-.btn-read-more:hover {
-  text-decoration: underline !important;
-  -moz-text-decoration-color: #70EFD6;
-  -o-text-decoration-color: #70EFD6;
-  -webkit-text-decoration-color: #70EFD6;
-  -ms-text-decoration-color: #70EFD6;
-  text-decoration-color: #70EFD6;
+  background-color: #70EFD6 !important;
 }
 
 /** News Details */
+.news-single .header h3 {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
 .news-related.news-related-files ul {
   list-style: none;
   padding-left: 0;
@@ -287,6 +275,45 @@ a.more:hover, .news-backlink-wrap a:hover {
   color: #70EFD6;
 }
 
+/** Shortlink-Navigations */
+/* Shortlink-Navigation Center */
+.layout-5 ul li ul li a {
+  display: initial;
+}
+
+.layout-5 ul {
+  display: flex;
+  flex-direction: row !important;
+  padding: 0;
+}
+
+.layout-5 ul li {
+  list-style: none;
+  display: flex;
+}
+
+.layout-5 ul li::after {
+  content: " | ";
+  align-self: center;
+}
+
+.layout-5 ul li:last-child::after {
+  content: "";
+}
+
+.layout-5 ul li a:hover {
+  color: #70EFD6;
+}
+
+.shadow-corporate {
+  box-shadow: 1px -0.5px 4px 0.5px #70EFD6;
+}
+
+@media (min-width: 576px) {
+  .news-single .news-img-wrap {
+    float: right;
+  }
+}
 @media (min-width: 992px) {
   #carouselNews .flexcol {
     /*        box-shadow: 1px 0px;*/

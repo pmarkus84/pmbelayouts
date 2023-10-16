@@ -1,8 +1,23 @@
-{namespace form = Pmwebdesign\Forms\ViewHelpers}
 
 <f:comment><!-- Forms --></f:comment>
-<li>
-  <f:link.page pageUid="{s:getPageId(extensionName: 'forms_formlist', sectionName: 'settings', constantName: 'pageIdForms')}" class="dropdown-item">
-      <f:translate extensionName="forms" key="tx_forms_forms" /><f:render partial="../Ext/forms/Partials/FormsCount" arguments="{_all}" />
-  </f:link.page>
+<li class="fustify-content-between align-items-start">
+    <f:link.page pageUid="{s:getPageId(extensionName: 'forms_formlist', sectionName: 'settings', constantName: 'pageIdForms')}" class="dropdown-item fw-bold">
+        <i class="fas fa-file-lines me-1"></i><f:translate extensionName="forms" key="tx_forms_forms" /><f:render partial="../Ext/forms/Partials/FormsCount" arguments="{antrag: 'AllForm', badge:'bg-danger', counter: allFormNumber}" />
+    </f:link.page>
+    <f:comment><!-- Absence form --></f:comment>
+    <f:link.action pageUid="{s:getPageId(extensionName: 'forms_formlist', sectionName: 'settings', constantName: 'pageIdForms')}" class="dropdown-item" controller="Absenceform" action="listOffen" pluginName="Formlist" extensionName="forms">
+        <f:translate extensionName="forms" key="tx_forms_absenceform" /><f:render partial="../Ext/forms/Partials/FormsCount" arguments="{antrag: 'Absenceform', counter:absenceNumber, badge:'bg-secondary'}" />
+    </f:link.action>
+    <f:comment><!-- Change form - TODO: Superior / PA --></f:comment>
+    <f:if condition="{itadmin}">
+        <f:link.action pageUid="{s:getPageId(extensionName: 'forms_formlist', sectionName: 'settings', constantName: 'pageIdForms')}" class="dropdown-item" controller="Changeform" action="listOffen" pluginName="Formlist" extensionName="forms">
+            <f:translate extensionName="forms" key="tx_forms_domain_model_changeform" /><f:render partial="../Ext/forms/Partials/FormsCount" arguments="{antrag: 'Changeform', counter:changeNumber, badge:'bg-secondary'}" />
+        </f:link.action>
+    </f:if>
+    <f:comment><!-- Home office form --></f:comment>
+    <f:if condition="{user.className} == 'Pmwebdesign\Forms\Domain\Model\Superior' || {itadmin}">
+        <f:link.action pageUid="{s:getPageId(extensionName: 'forms_formlist', sectionName: 'settings', constantName: 'pageIdForms')}" class="dropdown-item" controller="HomeOfficeForm" action="listOffen" pluginName="Formlist" extensionName="forms">
+            <f:translate extensionName="forms" key="home.office" /><f:render partial="../Ext/forms/Partials/FormsCount" arguments="{antrag: 'HomeOffice', counter:homeOfficeNumber, badge:'bg-secondary'}" />
+        </f:link.action>
+    </f:if>
 </li>

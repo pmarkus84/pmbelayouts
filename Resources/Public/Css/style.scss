@@ -13,26 +13,13 @@ Contributors:
     Author     : Markus Puffer <mpuffer@parat.eu>
 */
 
-//$firstCorporateColour: #C9234A;
-//$firstCorporateColour25: rgb(228,1,58);
-
-//$firstCorporateColour: #dc3545;
-//$firstCorporateColour25: rgba(220,53,69,.25);
-//$secondCorporateColour: #c3c3c3;
-//$greyCorporateColour: $secondCorporateColour;
-
-$firstCorporateColour: #70EFD6;
-$firstCorporateColour25: rgba(112,239,214,.25);
-
-$secondCorporateColour: #0040D1;
-$secondCorporateColour25: rgba(0,64,209,.25);
-
-$greyCorporateColour: #E0E2E3;
-$blackCorporateColour: #001D2D;
+@import "variables";
 
 @font-face {
     font-family: 'Inter';
-    src: url('../Fonts/Inter-Light.ttf');
+    src: url("../Fonts/Inter/Inter-Light.ttf"),
+        url("../Fonts/Inter/Inter-Bold.ttf"),
+        url("../Fonts/Inter/Inter-Regular.ttf");
     //src: url('../Fonts/ff_meta_ot_1/fonts/MetaOT-Norm.otf') format('opentype'),
          //url('../Fonts/ff_meta_ot_1/fonts/MetaOT-NormIta.otf') format('opentype'),
          //url('../Fonts/ff_meta_ot_1/fonts/MetaOT-Bold.otf') format('opentype'),
@@ -55,17 +42,45 @@ html {
 //}
 body {
     padding-top: 50px;
+    margin-top: 1px;
     padding-bottom: 0px !important;
-    /*font-size: 15px;*/
-/*    font-size: 1.2rem;*/
     -webkit-text-size-adjust: 100%;
     font-family: 'Inter', sans-serif;
-/*    font-family: 'Merriweather Sans', sans-serif;*/
-    /*font-family: 'Montserrat', sans-serif;*/
-/*    font-weight: 300;    */
+    overflow-x: hidden;
 }
 *, *::before, *::after {
     box-sizing: border-box;
+}
+
+.layout-2 {
+    background-color: #000000;
+}
+
+body, .btn {
+    letter-spacing: 1px;
+}
+
+// Colours
+.bg-dark {
+    background-color: #000000 !important;
+}
+.text-bg-dark {
+    background-color: #000000 !important;
+}
+.page-header {
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 1px;
+    margin-top: -1px;
+    border: 1px solid #000000;
+    background-image: url(../Images/parat_colour_background.jpg);
+    background-position: center;
+    background-repeat: no-repeat, repeat;
+    background-color: #000000;
+}
+
+.mobile {
+    display: block;
 }
 
 h1 {
@@ -78,8 +93,18 @@ a {
     text-decoration: none;
 }
 a:hover {
-    color: $firstCorporateColour;
+    color: $secondCorporateColour;
     text-decoration: none;
+}
+
+.text-white a {
+    color: white;
+}
+.text-white .btn-outline-secondary a {
+    color: white;
+}
+.text-white .btn-outline-secondary .active {
+    color: black !important;
 }
 
 /** Typo3 Messages */
@@ -93,21 +118,58 @@ a:hover {
 .btn, .btn-xs, btn-sm {
     /*background-color: #CCCCCC;*/
     /*border: none;*/
+    //border-radius: 50rem;
+    //border-color: #fff!important;
 }
 .btn-default {
     background-color: #CCCCCC;
     border-color: #c1bcbe;
 }
 .btn-primary {
-    color: #FFFFFF;
-    background-color: $secondCorporateColour;
-    border-color: $secondCorporateColour25;
+    //color: #FFFFFF;
+    font-weight: bold;
+    border-color: white;
+    border-width: 2px;
+    background: rgba(123,255,230,.2);
 }
-.btn-primary:hover, .btn:hover {
-    background-color: #666666;
-    border-color: #666666;
-    color: #FFFFFF;
+.btn-primary:hover {
+    background-color: rgba(123,255,230,.2);
+    border-color: $firstCorporateColour;
+    //color: #FFFFFF;
 }
+
+.btn-outline-secondary {
+    //--bs-btn-color: #6c757d;
+    --bs-btn-color: white;
+    //--bs-btn-border-color: #6c757d;
+    --bs-btn-border-color: white;
+    //--bs-btn-hover-color: #fff;
+    --bs-btn-hover-color: $firstCorporateColour;
+    //--bs-btn-hover-bg: #6c757d;
+    --bs-btn-hover-bg: unset;
+    --bs-btn-hover-border-color: $firstCorporateColour;
+    --bs-btn-focus-shadow-rgb: 108,117,125;
+    //--bs-btn-active-color: #fff;
+    --bs-btn-active-color: $firstCorporateColour;
+    //--bs-btn-active-bg: #6c757d;
+    --bs-btn-active-bg: white;
+    //--bs-btn-active-border-color: #6c757d;
+    --bs-btn-active-border-color: white;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    //--bs-btn-disabled-color: #6c757d;
+    --bs-btn-disabled-color: white;
+    --bs-btn-disabled-bg: transparent;
+    //--bs-btn-disabled-border-color: #6c757d;
+    --bs-btn-disabled-border-color: white;
+    --bs-gradient: none;
+}
+.dropdown-item-language-menu {
+    color: white;
+}
+.dropdown-item-language-menu:hover, .dropdown-item-language-menu:focus {
+    color: $firstCorporateColour;
+}
+
 /* Button Shadow */
 /*.btn.focus, .btn:focus {*/
 .btn-default.focus, .btn-default:focus {
@@ -129,17 +191,17 @@ a:hover {
 }
 .btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show > .btn-primary.dropdown-toggle {
     color: #fff;
-    background-color:  $secondCorporateColour25;
+    background-color:  $firstCorporateColour;
     border-color: $secondCorporateColour25;
 }
 .btn-primary:active, .show>.btn-primary.dropdown-toggle {
     color: #fff;
-    background-color: $secondCorporateColour25;
+    background-color: $firstCorporateColour;
     border-color: $secondCorporateColour25;
 }
 .btn-check:focus+.btn-primary, .btn-primary:focus {
     color: #fff;
-    background-color: $secondCorporateColour25;
+    background-color: $firstCorporateColour;
     border-color: $secondCorporateColour25;
     box-shadow: 0 0 0 0.25rem $secondCorporateColour25;
 }
@@ -147,6 +209,12 @@ a:hover {
 .btn-outline-secondary.nonehover:hover {
     color: #6c757d !important;
     border-color: #6c757d !important;
+    cursor: default;
+}
+.btn-outline-secondary:hover {
+    color: $firstCorporateColour !important;
+    border-color: $firstCorporateColour !important;
+    background-color: transparent;
     cursor: default;
 }
 .form-control.nonehover:hover {
@@ -184,10 +252,29 @@ a:hover {
 
 /** Header / Navbar */
 #main-navbar {
-    background-color: #000000;
+    background-color: #000000 !important;
 }
-.main-navbarnav a {
+#main-navbar.navbar-expand-md {
+    overflow-y: visible !important;
+    max-height: 100%!important;
+}
+#main-navbar .navbar-nav .dropdown-menu {
+    position: absolute;
+}
+#main-navbar.navbar {
+    border-radius: 0;
+}
+// Hide vertical scrollbar in navbar (right side)
+.navbar .container-fluid {
+    overflow-x: inherit;
+}
+.main-navbarnav .nav-link {
+    font-weight: bold;
     text-transform: uppercase;
+    color: white;
+}
+.main-navbarnav .nav-link.parent-active, .main-navbarnav .nav-link:focus {
+    color: $firstCorporateColour;
 }
 .main-navbarnav a:hover {
     color: $firstCorporateColour !important;
@@ -196,7 +283,7 @@ a:hover {
     width: 150px;
 }
 #main-navbar .btn-outline-secondary:hover {
-    color: $firstCorporateColour;
+    color: $firstCorporateColour !important;
     background-color: transparent;
     border-color: $firstCorporateColour;
 }
@@ -206,12 +293,18 @@ a:hover {
     background-color: $firstCorporateColour;
 }
 .dropdown-item:focus, .dropdown-item:hover {
-    color: $firstCorporateColour;
+    color: $firstCorporateColour !important;
     background-color: #343a40;
 }
-.pmbelayouts-forms-dropdown .dropdown-menu {
-    left: inherit;
-    right: 0;
+.dropdown-item-language-menu {
+    margin-left: 10px;
+}
+#taskCounter { // 2023-05-10 dvpm
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+#log-form {
+    margin-bottom: 0;
 }
 #logoutPlace #taskCounter:hover .svg-inline--fa {
     color: $firstCorporateColour;
@@ -224,6 +317,10 @@ a:hover {
 #fullusername:hover {
     background-color: transparent;
     color: #000000;
+}
+// Override from t3sbootstrap
+.dd-animate-1, .dd-animate-2 {
+    position: absolute !important;
 }
 
 /** Teaser */
@@ -310,6 +407,9 @@ a:hover {
             opacity:1;
         }*/
 }
+.img-rounded-tr {
+    border-radius: 0 30px 0 0;
+}
 .srcSet{
     position: fixed;
     width: 100%;
@@ -364,55 +464,23 @@ a:hover {
 }
 
 /** Content */
+// Login on MA-Page
+.loginFormHome legend {
+    color: #ffffff;
+    border-bottom: none;
+}
 //#page-content {
 //    margin-bottom: 100px;
 //}
 #page-footer + #page-content {
     margin-top: 100px;
 }
-#contents {
-    min-height: 100%;
-    height: auto !important;
-    height: 100%;
-    margin: 0 auto -145px;
-}
-#contentdiv {
-    position: relative;
-    /*    background-color: #F7F7FF;     */
-    background-color: #FFFFFF;
-    margin-top: 10px;
-}
+
 #content {
     /*position: relative;*/
     padding-top: 20px;
     padding-bottom: 145px;
     min-height: 400px; /* TODO: Test for hide image background after content */
-}
-.clearfix:after {
-    content:".";
-    display:block;
-    height:0;
-    font-size:0;
-    clear:both;
-    visibility:hidden;
-}
-.clearfix {
-    display:inline-block;
-}
-/* Bereich nicht für IE-mac Anfang \*/
-* html .clearfix {
-    height:1%;
-}
-.clearfix {
-    display:block;
-}
-/* Bereich nicht für IE-mac Ende */
-
-@media all {
-    .clearfix::before, .clearfix::after, .dl-horizontal dd::before, .dl-horizontal dd::after, .container::before, .container::after, .container-fluid::before, .container-fluid::after, .row::before, .row::after, .form-horizontal .form-group::before, .form-horizontal .form-group::after, .btn-toolbar::before, .btn-toolbar::after, .btn-group-vertical > .btn-group::before, .btn-group-vertical > .btn-group::after, .nav::before, .nav::after, .navbar::before, .navbar::after, .navbar-header::before, .navbar-header::after, .navbar-collapse::before, .navbar-collapse::after, .pager::before, .pager::after, .panel-body::before, .panel-body::after, .modal-header::before, .modal-header::after, .modal-footer::before, .modal-footer::after {
-        /*content: " "; TODO: Test */
-        display: block;
-    }
 }
 
 /** Footer */
@@ -466,6 +534,19 @@ a:hover {
 }
 #footermenue a:hover {
     color: $firstCorporateColour25;
+}
+
+// Bootstrap Cards
+// Program Icons
+.bs-card-program-icon img {
+    max-width: 100px;
+    max-height: 50px;
+    float: left;
+    margin-right: 10px;
+}
+.bs-card-program-icon ul li {
+    list-style: none;
+    //margin-left: 25px;
 }
 
 /** Typo3 Contents */
@@ -654,6 +735,18 @@ div.slidercontent {
     margin-left: auto;
     margin-right: auto;
 }
+.img-bg-white, .img-bg-white img {
+    background-color: white;
+}
+
+.no-border, .no-border .ce-uploads {
+    border: unset;
+}
+
+.no-list, .no-list ul {
+    list-style: none;
+    padding-left: 0;
+}
 
 /** Videos */
 audio, canvas, progress, video {
@@ -788,6 +881,7 @@ audio, canvas, progress, video {
 //}
 
 /* Layout Parat File List */
+/* Comment out - check if needed (2023-07-28 dvpm)
 table.filelisttable {
     border-radius: 10px;
     border-spacing: 0;
@@ -831,13 +925,25 @@ table.filelisttable tr:first-child th:last-child,
 table.filelisttable tr:first-child td:last-child {
     border-top-right-radius:10px
 }
+*/
+
 /* Filelist File size */
-.ce-uploads-filesize {
+.ce-uploads {
 /*    padding: 5px;
     background-color: #666666;
     border-radius: 5px;*/
-    color: #c6c6c6;
-    float: left;
+    color: white;
+    // Kneidinger damit die ganze Seite benutzt wird
+ //   float: left;
+
+}
+// Kneidinger Zeilenumbruch zwischen Titel und Beschreibung
+.ce-uploads-description {
+    display: block;
+}
+
+.image-caption {
+    font-size: large;
 }
 /* Layout Flex */
 .frame-layout-8 ul {
@@ -852,6 +958,10 @@ table.filelisttable tr:first-child td:last-child {
 .frame-threecolumn ul {
     border: 1px solid #666666;
     border-radius: 10px;
+    // Kneidinger: 14.09.2023 Erweitert wegen Images nebeneinander
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 }
 .frame-threecolumn ul li {
 /*    border: 1px solid #666666;*/
@@ -896,6 +1006,15 @@ table.filelisttable tr:first-child td:last-child {
 }
 
 @media (min-width: 768px) {
+    #main-navbar .navbar-nav {
+        align-items: center;
+    }
+    #main-navbar .navbar-nav .dropdown-menu {
+        position: static;
+    }
+    .dropdown-item-language-menu {
+        margin-left: 0;
+    }
     #page-46 .navbar, #page-46 #page-footer {
         background-color: transparent !important;
     }
@@ -962,7 +1081,7 @@ table.filelisttable tr:first-child td:last-child {
         height: 317px;
     }
     .frame-threecolumn ul li {
-        width: 33.3333%;
+        width: 25%;
         min-width: 300px;
         margin: 0;
         padding: 15px;
@@ -970,6 +1089,9 @@ table.filelisttable tr:first-child td:last-child {
 }
 
 @media (min-width: 992px) {
+    .mobile {
+        display: none;
+    }
     /** Teaser */
     /* Teaser Content */
     /*.tscont {        */

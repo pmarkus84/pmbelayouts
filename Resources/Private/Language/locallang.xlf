@@ -54,6 +54,9 @@
             <trans-unit id="pmbelayouts.editProfile">
                 <source>Edit profile</source>
             </trans-unit>
+            <trans-unit id="pmbelayouts.toPage">
+                <source>To page</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

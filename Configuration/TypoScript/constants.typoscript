@@ -7,11 +7,20 @@ resDir = EXT:pmbelayouts/Resources
 ##cat=Grundeinstellungen//1; type=text; label=Default-Werte für Meta-tags
 defaultDescription = PARAT Intranet
 
-##cat=Extensions//1; type=boolean; label=Extension Staffm aktiv
+##cat=Extensions//1; type=boolean; label=Extension Staffm activ
 extStaffmActive = 0
 
-##cat=Extensions//2; type=boolean; label=Extension Forms aktiv
+##cat=Extensions//2; type=boolean; label=Extension Forms activ
 extFormsActive = 0
+
+##cat=Extensions//3; type=boolean; label=Extension ShiftShedule activ
+extShiftSheduleActive = 0
+
+##cat=Extensions//4; type=boolean; label=Extension Adjustmentsheet activ
+extadjustmentsheetActive = 0
+
+##cat=Extensions//5; type=boolean; label=Extension DocumentControlling activ
+extdocumentControllingActive = 0
 
 #
 ##cat=Grundeinstellungen//1; type=text; label=Basis-URL: Set the Basis Url of the website

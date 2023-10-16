@@ -78,6 +78,13 @@
                 <source><![CDATA[<trans-unit id="tx_forms_forms">
                 <source>Forms</source>
             </trans-unit>]]></source>
+                <target state="translated">Formulare</target>
+            </trans-unit>
+            <trans-unit id="pmbelayouts.toPage">
+                <source><![CDATA[<trans-unit id="pmbelayouts.toPage">
+                <source>To page</source>
+            </trans-unit>]]></source>
+                <target state="translated">Zur Seite</target>
             </trans-unit>
         </body>
     </file>

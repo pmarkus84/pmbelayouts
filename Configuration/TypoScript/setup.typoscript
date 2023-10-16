@@ -4,4 +4,57 @@
 plugin.tx_pmbelayouts.settings {
     extStaffmActive = {$extStaffmActive}
     extFormsActive = {$extFormsActive}
+    extShiftSheduleActive = {$extShiftSheduleActive}
+    extadjustmentsheetActive = {$extadjustmentsheetActive}
+    extdocumentControllingActive = {$extdocumentControllingActive}
+}
+
+loginPage = PAGE
+loginPage  {
+    typeNum = 528456
+    config {
+        disableAllHeaderCode = 1
+        xhtml_cleaning = 0
+        admPanel = 0
+#        additionalHeaders = Content-type:application/octet-stream
+        additionalHeaders = Content-type:application/html
+        no_cache = 1
+        debug = 0
+    }
+#    10 < tt_content.list.20.pmbelayouts_pmbelayouts
+#    10 {
+#        renderObj < tt_content.list.20.pmbelayouts_pmbelayouts
+#    }
+    10 = USER
+    10 {
+        userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+        extensionName = Pmbelayouts
+        pluginName = Pmbelayouts
+        controller = Ajax
+        action = loadLogout, loadLogin
+        switchableControllerActions {
+            Ajax {
+                1 = loadLogout
+                2 = loadLogin
+            }
+        }
+        # TODO: Doesn´t run, test on Typo3 12 (dvpm 2023-06-22)
+#        settings {
+#            flexformContent = CONTENT
+#            flexformContent {
+#                table = tt_content
+#                select {
+#                    where = (uid = 2)
+#                }
+#                renderObj = COA
+#                renderObj {
+#                    5 = TEXT
+#                    5 {
+#                        data = flexform: pi_flexform:settings.admingroups
+#                    }
+#                }
+#            }
+#            #            nametitle =  page : title
+#        }
+    }
 }
