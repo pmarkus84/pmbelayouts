@@ -22,14 +22,22 @@ plugin.tx_t3sbootstrap {
     }
 }
 ## tx_news
-plugin.tx_news {    
-    # tx_news: Hide Dummy-Picture
-    settings.displayDummyIfNoMedia = 0
+plugin.tx_news {
+    settings {
+        # tx_news: Hide Dummy-Picture
+        displayDummyIfNoMedia = 0
+        list.paginate {
+            class = GeorgRinger\NumberedPagination\NumberedPagination
+            itemsPerPage = 10
+            insertAbove = 1
+            insertBelow = 1
+            maximumNumberOfLinks = 5
+        }
+    }
+
     # tx_news: Back-Button
     enableConfigValidation = 0
     dontUseBackPid = 0
-    # Set a new partial for categories to make a link to a category
-    # Removed for Typo3 11 - dvpm 2023-02-22
     view {
 #        layoutRootPaths {
 #            105 = {$resDir}/Private/ext/t3sbootstrap/Extensions/news/Resources/Private/Layouts/
@@ -44,7 +52,6 @@ plugin.tx_news {
             110 = {$resDir}/Private/ext/news/Resources/Private/Templates/Styles/Twb5/Partials/
         }
     }
-
     # Set this to PageTS, then you can select various Layouts
 #    tx_news.templateLayouts {
 #        1 = A custom layout
@@ -128,7 +135,7 @@ page {
 #            ## Clean the HTML-Code
 #            #xhtml_cleaning = all
 #            ## For development and testing, disable caching
-            no_cache = 1
+             #no_cache = 1
 #            #cache = 0
 #            # For right extension caching
 #            sendCacheHeaders = 1
