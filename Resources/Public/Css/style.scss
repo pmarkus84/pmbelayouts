@@ -43,7 +43,7 @@ html {
 body {
     padding-top: 50px;
     margin-top: 1px;
-    padding-bottom: 0px !important;
+    padding-bottom: 150px !important;
     -webkit-text-size-adjust: 100%;
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
@@ -63,6 +63,12 @@ body, .btn {
 // Colours
 .bg-dark {
     background-color: #000000 !important;
+}
+.bg-corporate-colour-1 {
+    background-color: $firstCorporateColour;
+}
+.bg-corporate-colour-2 {
+    background-color: $secondCorporateColour;
 }
 .text-bg-dark {
     background-color: #000000 !important;
@@ -124,6 +130,10 @@ a:hover {
 .btn-default {
     background-color: #CCCCCC;
     border-color: #c1bcbe;
+}
+.btn-default:hover {
+    background-color: #5c636a;
+    color: white;
 }
 .btn-primary {
     //color: #FFFFFF;
@@ -484,6 +494,26 @@ a:hover {
 }
 
 /** Footer */
+.footer-claim-bar {
+    position: relative!important;
+    //min-width: 1920px;
+    height: 88px;
+    background: linear-gradient(165deg,#7bffe6 -20%,#1b4e7d 10%,#133c5a 38%,rgba(7,37,106,.9) 60%,rgba(46,85,77,.2) 90%,rgba(2,7,27,.5)),#02071b;
+}
+.footer-claim-text {
+    height: 100%;
+}
+.footer-claim-text-inner {
+    width: clamp(13.75rem,13.75rem + (16.14583vw),21.5rem);
+    align-items: center!important;
+    align-content: center;
+}
+#page-46 .footer-claim-bar, #page-46 .bg-corporate-colour-2 {
+    background: transparent !important;
+}
+#page-46 .footer-claim-text {
+    display: none;
+}
 #page-footer a {
     color: white;
 }
@@ -988,6 +1018,10 @@ table.filelisttable tr:first-child td:last-child {
 .rollovercollection4.block1 {
     box-shadow: 5px 5px 5px #cccccc,
         -1px -1px 5px #cccccc;
+}
+
+.flex-center {
+    justify-content: center;
 }
 
 @media (min-width: 576px) {
