@@ -134,11 +134,11 @@ a:hover {
 .btn-outline-secondary {
   --bs-btn-color: white;
   --bs-btn-border-color: white;
-  --bs-btn-hover-color: $firstCorporateColour;
+  --bs-btn-hover-color: #70EFD6;
   --bs-btn-hover-bg: unset;
-  --bs-btn-hover-border-color: $firstCorporateColour;
+  --bs-btn-hover-border-color: #70EFD6;
   --bs-btn-focus-shadow-rgb: 108,117,125;
-  --bs-btn-active-color: $firstCorporateColour;
+  --bs-btn-active-color: #70EFD6;
   --bs-btn-active-bg: white;
   --bs-btn-active-border-color: white;
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
@@ -444,7 +444,7 @@ a:hover {
 .headliner {
   color: #ffffff;
   position: relative;
-  transform: translate3d(o, -35%, 0);
+  transform: translate3d(0, -35%, 0);
   margin-top: 100px;
   bottom: 32px;
   /*left: 32px;*/
