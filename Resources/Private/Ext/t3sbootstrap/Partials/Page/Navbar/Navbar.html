@@ -521,8 +521,29 @@
 					$("#logoutPlace").html('Ajax request - ' + textStatus + ': ' + errorThrow + jqXHR.responseText).fadeIn('fast');
 				}
 			});
+
+
+			setInterval(function()
+			{
+				$.ajax({
+					url: window.location.href,
+					type: "GET",
+					data: data,
+					dataType: 'HTML',
+					cache: false,
+					success: function (result) {
+						$("#logoutPlace").html(result).fadeIn('fast');
+					},
+					error: function (jqXHR, textStatus, errorThrow) {
+						$("#logoutPlace").html('Ajax request - ' + textStatus + ': ' + errorThrow + jqXHR.responseText).fadeIn('fast');
+					}
+				});
+			}, 300000); //300000 is 5minutes in ms
 		}
 	});
+
+
+
 
 	/**
 	 * Check Url

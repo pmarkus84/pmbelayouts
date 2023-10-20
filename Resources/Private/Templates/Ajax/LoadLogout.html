@@ -16,6 +16,7 @@
             <f:variable name="countOpenAdjustmentSheets">{adjustment:countOpen()}</f:variable>
             <f:variable name="allFormNumber" value="{absenceNumber + changeNumber + homeOfficeNumber}" />
             <f:variable name="deputy" value="{s:isCostCenterResponsible(employee: user, withDeputy: 1)}"/>
+
             <f:if condition="{overdueQualificationsCount}">
                 <f:then>
                     <f:variable name="allCount" value="{allFormNumber + countOpenAdjustmentSheets + overdueQualificationsCount}" />
@@ -37,7 +38,7 @@
                         <f:if condition="{settings.extFormsActive} == 1">
                             <f:render partial="../Ext/forms/Partials/Forms" arguments="{_all}" />
                         </f:if>
-                        <f:comment><!-- TODO: Extension Shift shedule active? --></f:comment>
+                        <f:comment><!-- Extension Shift shedule active? --></f:comment>
                         <f:if condition="{settings.extShiftSheduleActive} == 1">
                             <f:render partial="../Ext/shiftShedule/Partials/shiftShedule" arguments="{_all}" />
                         </f:if>
