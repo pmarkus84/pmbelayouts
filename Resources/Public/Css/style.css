@@ -292,6 +292,7 @@ a:hover {
   color: #70EFD6 !important;
   background-color: transparent;
   border-color: #70EFD6;
+  cursor: pointer;
 }
 
 .dropdown-item.active, .dropdown-item:active {

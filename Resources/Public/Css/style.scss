@@ -296,6 +296,7 @@ a:hover {
     color: $firstCorporateColour !important;
     background-color: transparent;
     border-color: $firstCorporateColour;
+    cursor: pointer;
 }
 .dropdown-item.active, .dropdown-item:active {
     color: #000000;
