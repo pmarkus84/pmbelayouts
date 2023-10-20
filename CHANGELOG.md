@@ -1,5 +1,21 @@
 # Pmbelayouts Change Log
 
+## 3.0.1
+
+* [META] Set version to 3.0.1.
+* [BUGFIX] Performance Problem and autoload count open Workflows
+* [UPDATE] Footer updates.
+* [BUGFIX] Color fix from variable.
+* [UPDATE] Set Partial for search result in news.
+* [UPDATE] Set style for footer and so on.
+* [CLEANUP] Removed unused file.
+* [DEV] Deactivate no_cache.
+* [RELEASE] Version 3.0.0 Typo3 11.5.
+
+| Dependent | Version   |
+|-----------|-----------|
+| PHP       | 8.0 - 8.1 |
+
 ## 3.0.0
 
 * [META] Set version to 3.0.0.
