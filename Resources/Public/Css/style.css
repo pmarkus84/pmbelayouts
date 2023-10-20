@@ -1042,6 +1042,10 @@ table.filelisttable tr:first-child td:last-child {
   justify-content: flex-start;
 }
 
+.justify-content-center .frame-threecolumn ul {
+  justify-content: center;
+}
+
 .frame-threecolumn ul li {
   /*    border: 1px solid #666666;*/
   width: 100%;
