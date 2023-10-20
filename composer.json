@@ -8,12 +8,12 @@
     "name": "pmwebdesign/pmbelayouts",
     "type": "typo3-cms-extension",
     "description": "Various Backend Layouts",
-    "version": "3.0.0",
+    "version": "3.0.1",
     "keywords": [
         "TYPO3",
         "extension"
     ],
-    "homepage": "https://www.parat-kunststoff.eu",
+    "homepage": "https://parat-technology.com",
     "authors": [
         {
             "name": "Markus Puffer",
