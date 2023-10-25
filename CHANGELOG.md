@@ -1,5 +1,18 @@
 # Pmbelayouts Change Log
 
+## 3.0.2
+
+* [META] Set version to 3.0.2.
+* [UPDATE] Changed background from thumbnail pictures.
+* [FEATURE] Added new file icon selection.
+* [UPDATE] Add corporate design to Stylesheet.
+* [UPDATE] Stylesheed.
+* [RELEASE] Version 3.0.1 Typo3 11.5.
+
+| Dependent | Version   |
+|-----------|-----------|
+| PHP       | 8.0 - 8.1 |
+
 ## 3.0.1
 
 * [META] Set version to 3.0.1.
