@@ -47,13 +47,14 @@ body {
     -webkit-text-size-adjust: 100%;
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
+    word-wrap: break-word;
 }
 *, *::before, *::after {
     box-sizing: border-box;
 }
 
 .layout-2 {
-    background-color: #000000;
+    background-color: $blackCorporateColour;
 }
 
 body, .btn {
@@ -62,7 +63,7 @@ body, .btn {
 
 // Colours
 .bg-dark {
-    background-color: #000000 !important;
+    background-color: $blackCorporateColour !important;
 }
 .bg-corporate-colour-1 {
     background-color: $firstCorporateColour;
@@ -82,7 +83,10 @@ body, .btn {
     background-image: url(../Images/parat_colour_background.jpg);
     background-position: center;
     background-repeat: no-repeat, repeat;
-    background-color: #000000;
+    background-color: $blackCorporateColour;
+}
+.layout-2 #page-wrapper header {
+    color: white;
 }
 
 .mobile {
@@ -262,7 +266,7 @@ a:hover {
 
 /** Header / Navbar */
 #main-navbar {
-    background-color: #000000 !important;
+    background-color: $blackCorporateColour !important;
 }
 #main-navbar.navbar-expand-md {
     overflow-y: visible !important;
@@ -963,7 +967,7 @@ table.filelisttable tr:first-child td:last-child {
 /*    padding: 5px;
     background-color: #666666;
     border-radius: 5px;*/
-    color: white;
+    //color: white;
     // Kneidinger damit die ganze Seite benutzt wird
  //   float: left;
 
@@ -977,38 +981,72 @@ table.filelisttable tr:first-child td:last-child {
     font-size: large;
 }
 /* Layout Flex */
-.frame-layout-8 ul {
+.layout-8 ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-}
-.frame-layout-8 ul li {
-    margin-right: 15px;
+    list-style: none;
 }
 /* File Links */
-.frame-threecolumn ul {
-    border: 1px solid #666666;
-    border-radius: 10px;
-    // Kneidinger: 14.09.2023 Erweitert wegen Images nebeneinander
+.layout-8 .ce-uploads li {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
 }
-.justify-content-center .frame-threecolumn ul {
+.layout-2 #page-wrapper .ce-uploads {
+    color: white;
+    & a {
+        color: white;
+    }
+}
+.frame-threecolumn {
+    border: 1px solid $blackCorporateColour;
+    border-radius: 10px;
+}
+.frame-threecolumn ul {
+    list-style: none;
+}
+.layout-2 #page-wrapper .frame-threecolumn {
+    border: 1px solid white;
+}
+// Headline
+.frame-threecolumn header {
+    font-size: 0.7em;
+}
+.frame-threecolumn header, .frame-threecolumn ul, .frame-threecolumn p, .frame-threecolumn .ce-textpic {
+    padding: 10px;
+}
+.frame-threecolumn header {
+    background-color: $blackCorporateColour;
+    border-radius: 6px 6px 0 0;
+    border-bottom: 1px solid $blackCorporateColour;
+    color: white;
+}
+.layout-2 #page-wrapper .frame-threecolumn {
+    border: 1px solid white;
+    border-radius: 10px;
+    & a {
+        color: white;
+    }
+}
+.layout-2 #page-wrapper .frame-threecolumn header {
+    background-color: $secondCorporateColour;
+    border-radius: 9px 9px 0 0;
+    border-bottom: 1px solid white;
+    color: white;
+}
+.justify-content-center .frame-threecolumn ul, .justify-content-center .layout-8 ul {
     justify-content: center;
 }
-.frame-threecolumn ul li {
+.frame-threecolumn ul li, .layout-8 ul li {
 /*    border: 1px solid #666666;*/
     width: 100%;
     margin: 0;
     padding: 15px;
 }
-/* Content text & media */
-.frame-threecolumn .ce-textpic {
-    border: 1px solid #666666;
-    border-radius: 10px;
-    padding: 20px;
+.ce-uploads a:hover {
+    color: $firstCorporateColour !important;
 }
+
+/* Content text & media */
 /* Thumbnail PDF */
 .listthumbnail img {
     border: 1px solid #c6c6c6;
@@ -1017,15 +1055,34 @@ table.filelisttable tr:first-child td:last-child {
     padding-right: 0;
 }
 
-/** Extensions rollover */
-/* Shadow of box */
-.rollovercollection4.block1 {
-    box-shadow: 5px 5px 5px #cccccc,
-        -1px -1px 5px #cccccc;
-}
-
 .flex-center {
     justify-content: center;
+}
+
+/** Bootstrap Card */
+.card {
+    border-color: $blackCorporateColour;
+}
+.layout-2 #page-wrapper .card {
+    border-color: white;
+    background-color: transparent;
+}
+.card .card-header {
+    background-color: $blackCorporateColour;
+    color: white;
+}
+.layout-2 #page-wrapper .card .card-header {
+    background-color: $secondCorporateColour;
+    color: white;
+}
+.layout-2 #page-wrapper .card .card-body {
+    color: white;
+    & a {
+        color: white;
+    }
+    & a:hover {
+        color: $firstCorporateColour;
+    }
 }
 
 @media (min-width: 576px) {
@@ -1057,68 +1114,24 @@ table.filelisttable tr:first-child td:last-child {
         background-color: transparent !important;
     }
 
-    /** Teaser */
-    /* Headline */
-    /*.headliner {*/
-    /*    margin-top: 25%;*/
-    /*}    */
-    /*.headliner.black.topline {*/
-    /*    margin-top: 160px;*/
-    /*}*/
-    /*!* Background-Image *!*/
-    /*.bgImg { */
-    /*    min-height: 350px;*/
-    /*}*/
-    /*!* Teaser Content *!*/
-    /*.tscont {        */
-    /*    min-height: 400px;*/
-    /*}*/
-
     /*!** Flexslider *!*/
     .flex-pauseplay a {
         height: auto;
     }
-    div.slidercontent {
-        /*max-height: 380px;
-        width: 100%;
-        overflow: hidden;
-        /*
-        margin-left: auto;
-        margin-right: auto;
-        */
-    }
-    .flexslider .slides img {
-        /*min-height: 350px;
-        max-height: 350px;
-        width: auto;
-        height: auto;
-        margin-left: auto;
-        /*margin-right: auto;*/
-    }
+
     /** Pictures */
     /* Picture right */
     .ce-right .ce-gallery {
         float: right;
     }
 
-    /* Picture-Content-Element
-    .ce-row {
-        display: flex;
-    }
-    .ce-column {
-        margin-bottom: 0;
-    }
-    .ce-column:last-child {
-
-    }    */
-    /*.rollovercollection4.block1 {
-        margin-left: 0;
-    }*/
     /* Picture Description Style Parat list */
     .style1picture {
         height: 317px;
     }
-    .frame-threecolumn ul li {
+
+    // Flex column
+    .layout-8 ul li {
         width: 25%;
         min-width: 300px;
         margin: 0;

@@ -13,7 +13,14 @@ TCEMAIN {
     permissions.everybody =
 }
 
-## Ueberschriften
+## Page Layout
+TCEFORM.pages.layout {
+    altLabels {
+        2 = Schwarze Seite
+    }
+}
+
+## Headlines
 TCEFORM.tt_content.header_layout{
     # Add Headline
     addItems.7 = h1 Parat-Black
@@ -29,20 +36,20 @@ TCEFORM.tt_content.header_layout{
 }
 
 TCEFORM.tt_content {    
-    # Layouts
+    # Layouts (css - classes)
     layout.altLabels.0 = Standard
     layout.altLabels.1 = Bilder Gallery (4-Spaltig)
-    layout.altLabels.2 = Bilder Icons  
-    layout.altLabels.3 = Drittes Layout   
-    layout.addItems.4 = Listdesign PARAT
-    layout.addItems.5 = Kurzlinks (Mitte, horizontal)
-    layout.addItems.6 = Kurzlinks (Links, vertikal)
-    layout.addItems.8 = Flex Container
+    layout.altLabels.2 = Bilder Icons
+    #layout.altLabels.3 = Drittes Layout
+    #layout.addItems.4 = Listdesign PARAT
+    #layout.addItems.5 = Kurzlinks (Mitte, horizontal)
+    #layout.addItems.6 = Kurzlinks (Links, vertikal)
+    layout.addItems.8 = Liste mehrspaltig (Flex)
     
-    # Frames
+    # Frames (css - classes)
     frame_class.addItems {
-        width100 = Länge 100%
-        threecolumn = Dreispaltiger Inhalt
+        #width100 = Länge 100%
+        threecolumn = Rahmen (abgerundet)
     }
 }
 
