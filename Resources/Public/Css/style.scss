@@ -899,6 +899,11 @@ audio, canvas, progress, video {
     width: 100%;
 }
 
+.mobile-text-center {
+    text-align: center;
+}
+
+
 /** Subpage navigation Pictures */
 //.frame-type-menu_sitemap_pages.frame-layout-0 ul, .frame-type-menu_subpages.frame-layout-0 ul, .frame-type-text.frame-layout-0 ul {
 //    list-style: none;
@@ -1137,6 +1142,10 @@ table.filelisttable tr:first-child td:last-child {
         min-width: 300px;
         margin: 0;
         padding: 15px;
+    }
+
+    .mobile-text-center {
+        text-align: unset;
     }
 }
 

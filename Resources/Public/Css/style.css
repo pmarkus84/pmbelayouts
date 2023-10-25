@@ -964,6 +964,10 @@ audio, canvas, progress, video {
   width: 100%;
 }
 
+.mobile-text-center {
+  text-align: center;
+}
+
 /** Subpage navigation Pictures */
 /* Layout Parat File List */
 /* Comment out - check if needed (2023-07-28 dvpm)
@@ -1193,6 +1197,9 @@ table.filelisttable tr:first-child td:last-child {
     min-width: 300px;
     margin: 0;
     padding: 15px;
+  }
+  .mobile-text-center {
+    text-align: unset;
   }
 }
 @media (min-width: 992px) {
