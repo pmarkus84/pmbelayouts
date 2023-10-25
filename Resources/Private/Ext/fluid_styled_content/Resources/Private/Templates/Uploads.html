@@ -1,3 +1,8 @@
+<f:comment><!--
+ * Overwrite from typo3\sysext\fluid_styled_content\Resources\Private\Templates\Uploads.html
+ * @author: Markus Puffer
+ --></f:comment>
+
 <f:layout name="Default"/>
 <f:section name="Main">
 
@@ -13,16 +18,10 @@
                         <td>
                 </f:if>
                 <li>
-                    <f:if condition="{data.uploads_type} == 1">
-                        <f:comment><img src="{f:uri.resource(path: 'Icons/FileIcons/{file.extension}.gif', extensionName: 'frontend')}" alt=""></f:comment>
-                        <a href="{file.publicUrl}" {f:if(condition:data.target,then: ' target="{data.target}"')}
-                        {f:if(condition: file.title, then: ' title="{file.title}"')}>
-                        <!-- Kneidinger Datenpfad angepasst ../ hinzugefügt -->
-                        <f:image width="64" height="64" alt="foo" src="/fileadmin/private/images/fileicons/set1/svg/{file.extension}.svg"></f:image>
-                        <f:comment>
-                            <img style="width:70px"  src="../fileadmin/private/images/fileicons/set1/svg/{file.extension}.svg"
-                                 alt="">
-                        </f:comment>
+                    <f:comment><!-- Z_PARAT: Change upload type --></f:comment>
+                    <f:if condition="{data.uploads_type} == 1 || {data.uploads_type} == 3">
+                        <a href="{file.publicUrl}" {f:if(condition:data.target,then: ' target="{data.target}"')} {f:if(condition: file.title, then: ' title="{file.title}"')}>
+                            <f:image width="64" height="50" alt="foo" src="/fileadmin/private/images/fileicons/{f:if(condition: '{data.uploads_type} == 1', then: 'set1/svg/', else:'corporate_design/')}{file.extension}.svg"></f:image>
                         </a>
                     </f:if>
                     <f:if condition="{data.uploads_type} == 2">

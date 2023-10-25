@@ -1,87 +1,41 @@
 <?php
 
-/* 
- * Copyright (c) 2018 Markus Puffer.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
+/*
+ * Copyright (c) 2023 PARAT Technology Group GmbH. Typo3 Project - Pmbelayout
+ * Markus Puffer (dvpm) - mpuffer@parat-technology.com
  *
- * Contributors:
- *    Markus Puffer  - Responsive Image Crop
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
  */
-//$GLOBALS['TCA']['tt_content']['types']['textmedia']['columnsOverrides']['image']['config']['overrideChildTca']['columns']['crop']['config'] = [
-////'config' => [
-//    //'type' => 'imageManipulation',
-//    'cropVariants' => [
-//        'default' => [
-//            //'title' => 'LLL:EXT:extkey/Resources/Private/Language/locallang_db.xlf:imageManipulation.desktop',
-//            'title' => 'desktop',
-//            'allowedAspectRatios' => [
-//                '625:204' => [
-//                    'title' => '625 : 204',
-//                    'value' => 625 / 204
-//                ]
-//            ],
-//            'coverAreas' => [
-//                [
-//                    'x' => 0.7,
-//                    'y' => 0.2,
-//                    'width' => 0.05,
-//                    'height' => 0.1,
-//                ],
-//                [
-//                    'x' => 0.25,
-//                    'y' => 0,
-//                    'width' => 0.1,
-//                    'height' => 0.3,
-//                ],
-//                [
-//                    'x' => 0.25,
-//                    'y' => 0.5,
-//                    'width' => 0.3,
-//                    'height' => 0.3,
-//                ],
-//                [
-//                    'x' => 0,
-//                    'y' => 0,
-//                    'width' => 1,
-//                    'height' => 0.1,
-//                ],
-//                [
-//                    'x' => 0,
-//                    'y' => 0.9,
-//                    'width' => 1,
-//                    'height' => 0.1,
-//                ]
-//            ],
-//        ],
-//        'landscape' => [
-//            'title' => 'landscape',
-//            'allowedAspectRatios' => [
-//                '76:25' => [
-//                    'title' => '76:25',
-//                    'value' => 76 / 25
-//                ]
-//            ]
-//        ],
-//        'tablet' => [
-//            'title' => 'tablet',
-//            'allowedAspectRatios' => [
-//                '767:255' => [
-//                    'title' => '767 : 255',
-//                    'value' => 767 / 255
-//                ]
-//            ]
-//        ],
-//        'mobile' => [
-//            'title' => 'mobile',
-//            'allowedAspectRatios' => [
-//                '124:51' => [
-//                    'title' => '124 : 51',
-//                    'value' => 124 / 51
-//                ]
-//            ]
-//        ]
-//    ]
-//];
+
+// Z_PARAT: Add upload type for corporate design
+$GLOBALS['TCA']['tt_content']['columns']['uploads_type'] = [
+        'exclude' => true,
+        'label' => 'LLL:EXT:frontend/Resources/Private/Language/Database.xlf:tt_content.uploads_type',
+        'config' => [
+            'type' => 'select',
+            'renderType' => 'selectSingle',
+            'items' => [
+                ['LLL:EXT:frontend/Resources/Private/Language/Database.xlf:tt_content.uploads_type.0', 0],
+                ['LLL:EXT:frontend/Resources/Private/Language/Database.xlf:tt_content.uploads_type.1', 1],
+                ['LLL:EXT:frontend/Resources/Private/Language/Database.xlf:tt_content.uploads_type.2', 2],
+                ['LLL:EXT:pmbelayouts/Resources/Private/Language/locallang.xlf:tt_content.uploads_type.3', 3],
+            ],
+            'default' => 0,
+        ],
+];
