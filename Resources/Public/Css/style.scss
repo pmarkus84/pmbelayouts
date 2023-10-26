@@ -600,10 +600,6 @@ a:hover {
 .filelinks {
     margin-bottom: 20px;
 }
-/* TODO: IE compatible contents */
-/*.ce-center .ce-outer, .ce-center .ce-inner {
-    float: none;
-}*/
 
 /** Slider */
 div.slidercontent {
@@ -777,10 +773,12 @@ div.slidercontent {
 .no-border, .no-border .ce-uploads {
     border: unset;
 }
-
 .no-list, .no-list ul {
     list-style: none;
     padding-left: 0;
+}
+.no-background, .no-background div {
+    background-color: transparent !important;
 }
 
 /** Videos */

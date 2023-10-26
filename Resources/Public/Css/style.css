@@ -629,10 +629,6 @@ a:hover {
   margin-bottom: 20px;
 }
 
-/* TODO: IE compatible contents */
-/*.ce-center .ce-outer, .ce-center .ce-inner {
-    float: none;
-}*/
 /** Slider */
 div.slidercontent {
   /*max-height: 250px;
@@ -827,6 +823,10 @@ div.slidercontent {
 .no-list, .no-list ul {
   list-style: none;
   padding-left: 0;
+}
+
+.no-background, .no-background div {
+  background-color: transparent !important;
 }
 
 /** Videos */

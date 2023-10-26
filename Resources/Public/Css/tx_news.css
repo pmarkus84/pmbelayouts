@@ -181,6 +181,7 @@ a.more:hover, .news-backlink-wrap a:hover {
 #carouselNews .newsitemheader {
   margin: 0;
   padding-left: 10px;
+  hyphens: auto;
 }
 
 .newsitemheader {
