@@ -994,6 +994,9 @@ table.filelisttable tr:first-child td:last-child {
 .layout-8 .ce-uploads li {
     display: flex;
 }
+.layout-8 .ce-uploads li div {
+    max-width: calc(100% - 40px);
+}
 .layout-2 #page-wrapper .ce-uploads {
     color: white;
     & a {
@@ -1136,10 +1139,7 @@ table.filelisttable tr:first-child td:last-child {
 
     // Flex column
     .layout-8 ul li {
-        width: 25%;
-        min-width: 300px;
-        margin: 0;
-        padding: 15px;
+        width: 50%;
     }
 
     .mobile-text-center {
@@ -1177,6 +1177,10 @@ table.filelisttable tr:first-child td:last-child {
 @media (min-width: 1400px) {
     .container {
         /*max-width: 90%;*/
+    }
+    // Flex column
+    .layout-8 ul li {
+        width: 25%;
     }
 }
 
