@@ -1,5 +1,17 @@
 # Pmbelayouts Change Log
 
+## 3.0.3
+
+* [META] Set version to 3.0.3.
+* [UPDATE] List style for files.
+* [UPDATE] Stylesheet.
+* [UPDATE] Alignment in stylesheet.
+* [RELEASE] Version 3.0.2.
+
+| Dependent | Version   |
+|-----------|-----------|
+| PHP       | 8.0 - 8.1 |
+
 ## 3.0.2
 
 * [META] Set version to 3.0.2.
