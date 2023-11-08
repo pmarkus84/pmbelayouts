@@ -897,6 +897,21 @@ audio, canvas, progress, video {
     width: 100%;
 }
 
+/** Date Picker */
+.datepicker td, .datepicker th {
+    border-radius: unset !important;
+}
+.datepicker .datepicker-switch, .datepicker .next, .datepicker .prev, .datepicker tfoot tr th {
+    cursor: pointer;
+}
+.datepicker .datepicker-switch:hover, .datepicker .next:hover, .datepicker .prev:hover, .datepicker tfoot tr th:hover {
+    background: transparent !important;
+    color: $firstCorporateColour;
+}
+.datepicker table tr td span {
+    letter-spacing: normal;
+}
+
 .mobile-text-center {
     text-align: center;
 }
