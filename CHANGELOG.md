@@ -1,5 +1,15 @@
 # Pmbelayouts Change Log
 
+## 3.0.4
+
+* [META] Set version to 3.0.4.
+* [UPDATE] Style datepicker.
+* [RELEASE] Version 3.0.3.
+
+| Dependent | Version   |
+|-----------|-----------|
+| PHP       | 8.0 - 8.1 |
+
 ## 3.0.3
 
 * [META] Set version to 3.0.3.
