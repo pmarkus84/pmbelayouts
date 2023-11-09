@@ -8,7 +8,7 @@
     "name": "pmwebdesign/pmbelayouts",
     "type": "typo3-cms-extension",
     "description": "Various Backend Layouts",
-    "version": "3.0.3",
+    "version": "3.0.4",
     "keywords": [
         "TYPO3",
         "extension"
