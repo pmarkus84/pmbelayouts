@@ -9,7 +9,7 @@
         <f:if condition="{user.kostenstelle.nummer} == 1901">
             <f:then>
                 <f:link.page pageUid="{s:getPageId(extensionName: 'adjustmentsheet', sectionName: 'settings', constantName: 'pageIdLeanAdjustmentsheet')}" class="dropdown-item fw-bold">
-                    <i class="fas fa-file-lines me-1"></i><f:translate extensionName="adjustmentsheet" key="tx_adjustmentsheet_domain_model_adjustmentsheet"/>
+                    <i class="fa-solid fa-file-lines me-1"></i><f:translate extensionName="adjustmentsheet" key="tx_adjustmentsheet_domain_model_adjustmentsheet"/>
                     <f:if condition="{countOpenAdjustmentSheets} > 0">
                         <span class="badge bg-danger text-light">{countOpenAdjustmentSheets}</span>
                     </f:if>
@@ -17,7 +17,7 @@
             </f:then>
             <f:else>
                 <f:link.page pageUid="{s:getPageId(extensionName: 'adjustmentsheet', sectionName: 'settings', constantName: 'pageIdAdjustmentsheet')}" class="dropdown-item fw-bold">
-                    <i class="fas fa-file-lines me-1"></i><f:translate extensionName="adjustmentsheet" key="tx_adjustmentsheet_domain_model_adjustmentsheet"/>
+                    <i class="fa-solid fa-file-lines me-1"></i><f:translate extensionName="adjustmentsheet" key="tx_adjustmentsheet_domain_model_adjustmentsheet"/>
                     <f:if condition="{countOpenAdjustmentSheets} > 0">
                     <span class="badge bg-danger text-light">{countOpenAdjustmentSheets}</span>
                 </f:if>

@@ -28,7 +28,7 @@
             <div class="btn-group">
                 <f:if condition="{settings.extFormsActive} == 1">
                     <f:link.page title="{f:translate(extensionName: 'forms', key: 'tx_forms_forms')}" id="taskCounter" class="btn btn-outline-secondary dropdown-toggle" additionalAttributes="{data-bs-toggle:'dropdown',aria-expanded:'false',role:'button'}" pageUid="{s:getPageId(extensionName: 'forms_formlist', sectionName: 'settings', constantName: 'pageIdForms')}">
-                        <i class="fas fa-list me-1"></i><f:render partial="../Ext/forms/Partials/FormsCount" arguments="{antrag:'all', counter:allCount, badge:'bg-danger'}" />
+                        <i class="fa-solid fa-list me-1"></i><f:render partial="../Ext/forms/Partials/FormsCount" arguments="{antrag:'all', counter:allCount, badge:'bg-danger'}" />
                     </f:link.page>
                 </f:if>
                 <ul class="dropdown-menu{dropdownAnimate}">
@@ -63,7 +63,7 @@
                 </f:then>
                 <f:else>
                     <f:comment><!-- Icon for user --></f:comment>
-                    <i class="fas fa-user me-1"></i>
+                    <i class="fa-solid fa-user me-1"></i>
                 </f:else>
             </f:if>
         </div>

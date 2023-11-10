@@ -2,7 +2,7 @@
 <f:comment><!-- Forms --></f:comment>
 <li class="fustify-content-between align-items-start">
     <f:link.page pageUid="{s:getPageId(extensionName: 'forms_formlist', sectionName: 'settings', constantName: 'pageIdForms')}" class="dropdown-item fw-bold">
-        <i class="fas fa-file-lines me-1"></i><f:translate extensionName="forms" key="tx_forms_forms" /><f:render partial="../Ext/forms/Partials/FormsCount" arguments="{antrag: 'AllForm', badge:'bg-danger', counter: allFormNumber}" />
+        <i class="fa-solid fa-file-lines me-1"></i><f:translate extensionName="forms" key="tx_forms_forms" /><f:render partial="../Ext/forms/Partials/FormsCount" arguments="{antrag: 'AllForm', badge:'bg-danger', counter: allFormNumber}" />
     </f:link.page>
     <f:comment><!-- Absence form --></f:comment>
     <f:link.action pageUid="{s:getPageId(extensionName: 'forms_formlist', sectionName: 'settings', constantName: 'pageIdForms')}" class="dropdown-item" controller="Absenceform" action="listOffen" pluginName="Formlist" extensionName="forms">
