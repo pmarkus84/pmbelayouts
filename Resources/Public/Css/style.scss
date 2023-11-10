@@ -43,7 +43,7 @@ html {
 body {
     padding-top: 50px;
     margin-top: 1px;
-    padding-bottom: 150px !important;
+    padding-bottom: 250px !important;
     -webkit-text-size-adjust: 100%;
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
@@ -1190,6 +1190,9 @@ table.filelisttable tr:first-child td:last-child {
 }
 
 @media (min-width: 1400px) {
+    body {
+        padding-bottom: 150px !important;
+    }
     .container {
         /*max-width: 90%;*/
     }
