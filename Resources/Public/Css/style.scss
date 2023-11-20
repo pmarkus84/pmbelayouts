@@ -1107,6 +1107,15 @@ table.filelisttable tr:first-child td:last-child {
     }
 }
 
+/* Typo3 - Messages */
+.typo3-messages {
+    margin-bottom: 1px !important;
+}
+.alert {
+    border-radius: unset !important;
+    margin-bottom: 1px !important;
+}
+
 @media (min-width: 576px) {
     /* Picture Description Style Parat list */
     .style1picture {

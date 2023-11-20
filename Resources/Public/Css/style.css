@@ -1174,6 +1174,16 @@ table.filelisttable tr:first-child td:last-child {
   color: #70EFD6;
 }
 
+/* Typo3 - Messages */
+.typo3-messages {
+  margin-bottom: 1px !important;
+}
+
+.alert {
+  border-radius: unset !important;
+  margin-bottom: 1px !important;
+}
+
 @media (min-width: 576px) {
   /* Picture Description Style Parat list */
   .style1picture {
