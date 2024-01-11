@@ -270,22 +270,24 @@ page.includeJSFooter {
 #
 #}
 
-page {
-        config.linkVars = L
-        config.sys_language_overlay = hideNonTranslated
-
-        # Standardsprache UID 0 -> Deutsch
-        config.sys_language_uid = 0
-        config.language = de
-        config.locale_all = de_DE.UTF8
-
-        # Englisch, sys_language.uid = 1
-    [globalVar = GP:L = 2]
-        config.sys_language_uid = 2
-        config.language = en
-        config.locale_all = en_EN
-    [global]
-
-    config.sys_language_mode = strict
-    #config.sys_language_overlay = 1
-}
+#page {
+#        config.linkVars = L
+#        config.metaCharset = utf-8
+#        #config.sys_language_overlay = hideNonTranslated
+#
+#        # Standardsprache UID 0 -> Deutsch
+#        config.language = de
+#        config.sys_language_uid = 0
+#        config.locale_all = de_DE.utf8
+#        htmlTag_setParams = lang="de" dir="ltr" class="no-js"
+#
+#    #config.sys_language_mode = strict
+#    #config.sys_language_overlay = 1
+#}
+#
+## Englisch, sys_language.uid = 1
+#[globalVar = GP:L = 2]
+#    config.sys_language_uid = 2
+#    config.language = en
+#    config.locale_all = en_US.utf8
+#[global]
