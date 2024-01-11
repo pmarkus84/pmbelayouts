@@ -22,6 +22,9 @@ extadjustmentsheetActive = 0
 ##cat=Extensions//5; type=boolean; label=Extension DocumentControlling activ
 extdocumentControllingActive = 0
 
+##cat=Extensions//5; type=boolean; label=Extension CanteenManagement activ
+extcanteenManagementActive = 0
+
 #
 ##cat=Grundeinstellungen//1; type=text; label=Basis-URL: Set the Basis Url of the website
 #baseUrl =

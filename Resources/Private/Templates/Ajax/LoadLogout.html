@@ -50,6 +50,12 @@
                         <f:if condition="{settings.extdocumentControllingActive} == 1">
                             <f:render partial="Ext/documentcontrolling/documentcontrolling" arguments="{_all}" />
                         </f:if>
+                        <f:if condition="{settings.extcanteenManagementActive} == 1">
+                            <f:render partial="../Ext/canteenManagement/Partials/canteenManagement" arguments="{_all}" />
+                        </f:if>
+                        <f:if condition="{settings.extcanteenManagementActive} == 1">
+                            <f:render partial="../Ext/canteenManagement/Partials/canteenOrder" arguments="{_all}" />
+                        </f:if>
                     </f:if>
                 </ul>
             </div>

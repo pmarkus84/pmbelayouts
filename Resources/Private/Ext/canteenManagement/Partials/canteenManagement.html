@@ -1,0 +1,8 @@
+<f:security.ifHasRole role="Intranet-KantinePlanung">
+    <li><hr class="dropdown-divider"></li>
+    <li class="justify-content-between align-items-start">
+        <f:link.page pageUid="{s:getPageId(extensionName: 'staffm', sectionName: 'settings', constantName: 'pageIdCanteenManagement')}" class="dropdown-item fw-bold">
+            <i class="fa-solid fa-calendar-week"></i> <f:translate key="canteen_management"></f:translate>
+        </f:link.page>
+    </li>
+</f:security.ifHasRole>

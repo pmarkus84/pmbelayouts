@@ -92,6 +92,18 @@
             </trans-unit>]]></source>
                 <target state="translated">Datei-Icon in Corporate Design</target>
             </trans-unit>
+            <trans-unit id="canteen_order">
+                <source>Canteen order</source>
+                <target>Kantinen Bestellung</target>
+            </trans-unit>
+            <trans-unit id="canteen_management">
+                <source>Canteen Management</source>
+                <target>Kantinen Management</target>
+            </trans-unit>
+            <trans-unit id="documentcontrolling">
+                <source>Document control Workflow</source>
+                <target>Dokumentenlenkung</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

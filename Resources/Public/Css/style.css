@@ -600,9 +600,8 @@ a:hover {
 }
 
 .bs-card-program-icon img {
-  max-width: 100px;
   max-height: 50px;
-  float: left;
+  width: auto;
   margin-right: 10px;
 }
 
@@ -1266,6 +1265,9 @@ table.filelisttable tr:first-child td:last-child {
   }
   .layout-8 ul li {
     width: 25%;
+  }
+  .bs-card-program-icon img {
+    float: left;
   }
 }
 @media (min-width: 1600px) {

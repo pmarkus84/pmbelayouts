@@ -1,0 +1,7 @@
+<f:if condition="{user.firma.nummer} == '100' || {user.firma.nummer} == '900'">
+    <li class="justify-content-between align-items-start">
+        <f:link.page pageUid="{s:getPageId(extensionName: 'staffm', sectionName: 'settings', constantName: 'pageIdCanteenOrder')}" class="dropdown-item fw-bold">
+            <i class="fa-solid fa-utensils"></i> <f:translate key="canteen_order" />
+        </f:link.page>
+    </li>
+</f:if>

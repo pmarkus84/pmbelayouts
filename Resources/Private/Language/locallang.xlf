@@ -60,6 +60,9 @@
             <trans-unit id="tt_content.uploads_type.3">
                 <source>Fileicon in corporate design</source>
             </trans-unit>
+            <trans-unit id="canteen_order">
+                <source>Canteen order</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

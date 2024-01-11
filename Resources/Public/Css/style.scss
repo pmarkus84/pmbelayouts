@@ -574,9 +574,8 @@ a:hover {
 // Bootstrap Cards
 // Program Icons
 .bs-card-program-icon img {
-    max-width: 100px;
     max-height: 50px;
-    float: left;
+    width: auto;
     margin-right: 10px;
 }
 .bs-card-program-icon ul li {
@@ -1208,6 +1207,9 @@ table.filelisttable tr:first-child td:last-child {
     // Flex column
     .layout-8 ul li {
         width: 25%;
+    }
+    .bs-card-program-icon img {
+        float: left;
     }
 }
 
