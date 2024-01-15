@@ -1,15 +1,25 @@
 # Pmbelayouts Change Log
 
+## 3.0.6
+
+* [META] Set version to 3.0.6.
+* [UPDATE] Admin access on login.
+* [Release] Version to 3.0.5.
+
+| Dependent | Version   |
+|-----------|-----------|
+| PHP       | 8.0 - 8.1 |
+
 ## 3.0.5
 
-[META] Set version to 3.0.5.
-[UPDATE] implement Canteen.
-[UPDATE] implement Canteen.
-[CLEANUP] Remove language configuration in typoscript.
-[UPDATE] Style Typo3 messages.
-[UPDATE] Body size.
-[UPDATE] Font-Icons to version 6.
-[RELEASE] Version 3.0.4.
+* [META] Set version to 3.0.5.
+* [UPDATE] implement Canteen.
+* [UPDATE] implement Canteen.
+* [CLEANUP] Remove language configuration in typoscript.
+* [UPDATE] Style Typo3 messages.
+* [UPDATE] Body size.
+* [UPDATE] Font-Icons to version 6.
+* [RELEASE] Version 3.0.4.
 
 | Dependent | Version   |
 |-----------|-----------|
