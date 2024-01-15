@@ -1,4 +1,10 @@
-<f:if condition="{user.firma.nummer} == '100' || {user.firma.nummer} == '900'">
+<f:security.ifHasRole role="Intranet-KantinePlanung">
+    <f:variable name="canteenPlaning" value="True" />
+</f:security.ifHasRole>
+<f:security.ifHasRole role="Intranet-KantineAnzeigen">
+    <f:variable name="canteenShow" value="True" />
+</f:security.ifHasRole>
+<f:if condition="{user.firma.nummer} == '100' || {user.firma.nummer} == '900' || {itadmin} || {canteenPlaning} || {canteenShow}">
     <li class="justify-content-between align-items-start">
         <f:link.page pageUid="{s:getPageId(extensionName: 'staffm', sectionName: 'settings', constantName: 'pageIdCanteenOrder')}" class="dropdown-item fw-bold">
             <i class="fa-solid fa-utensils"></i> <f:translate key="canteen_order" />
