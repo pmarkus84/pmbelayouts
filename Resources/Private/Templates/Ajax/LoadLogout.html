@@ -4,7 +4,9 @@
 {namespace adjustment = BmParat\Adjustmentsheet\ViewHelpers}
 
 <f:variable name="user"><h:getUser></h:getUser></f:variable>
-<f:variable name="itadmin" value="{s:isAdmin()}" />
+<f:security.ifHasRole role="Intranet-IT">
+    <f:variable name="itadmin" value="True" />
+</f:security.ifHasRole>
 <f:variable name="personalabteilung" value="{form:IsPersonnelManagement()}"></f:variable>
 <form class="form-inline" id="log-form" action="/" enctype="multipart/form-data" method="post">
     <div class="input-group">
