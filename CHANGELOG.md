@@ -1,5 +1,15 @@
 # Pmbelayouts Change Log
 
+## 3.0.7
+
+* [META] Set version to 3.0.7.
+* [UPDATE] Admin and canteen access on canteen order.
+* [RELEASE] Version to 3.0.6.
+
+| Dependent | Version   |
+|-----------|-----------|
+| PHP       | 8.0 - 8.1 |
+
 ## 3.0.6
 
 * [META] Set version to 3.0.6.
